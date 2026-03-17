@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jeri Sublime | Pousada de Luxo em Jericoacoara</title>
+  <meta name="description"
+    content="Jeri Sublime - Pousada boutique de luxo em Jericoacoara. Suítes exclusivas, piscina infinita, restaurante gourmet e as melhores experiências de Jeri." />
+  <meta name="keywords" content="Jericoacoara, pousada, hotel, luxo, praia, kitesurf, Ceará, Brasil" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="Jeri Sublime | Pousada de Luxo em Jericoacoara" />
+  <meta property="og:description"
+    content="Suítes exclusivas, piscina infinita e as melhores experiências de Jericoacoara." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1200" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f8f9',
+              100: '#daeaed',
+              300: '#a3ced6',
+              500: '#5ba6b5', // Ocean turquoise
+              700: '#3e7c8a',
+              900: '#1e3a42',
+            },
+            sand: {
+              50: '#fdfbf7',
+              100: '#f7f3e8',
+              500: '#d6cba0',
+            }
+          },
+          fontFamily: {
+            sans: ['Lato', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.3s ease-out',
+            'fade-in-up': 'fadeInUp 0.5s ease-out',
+            'slide-in': 'slideIn 0.4s ease-out',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            slideIn: {
+              '0%': { opacity: '0', transform: 'translateX(20px)' },
+              '100%': { opacity: '1', transform: 'translateX(0)' },
+            },
+          },
+        },
+      },
+    }
+  </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react-dom": "https://esm.sh/react-dom@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react-router-dom": "https://esm.sh/react-router-dom@6.22.3",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
+  }
+}
+</script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+
+<body class="bg-sand-50 text-slate-800 antialiased selection:bg-brand-300 selection:text-brand-900">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>

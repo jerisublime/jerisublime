@@ -1,0 +1,10 @@
+# Jeri Sublime - Pousada de Luxo em Jericoacoara
+
+User-agent: *
+Allow: /
+
+# Bloquear acesso de crawlers ao painel admin
+Disallow: /admin
+
+# Sitemap (adicionar quando disponível)
+# Sitemap: https://seu-dominio.com/sitemap.xml
