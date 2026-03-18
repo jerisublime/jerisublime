@@ -67,6 +67,7 @@ const Admin: React.FC = () => {
   const [newSuite, setNewSuite] = useState<Partial<Suite>>({
     title: '', price: '', desc: '', image: ''
   });
+  const [editingSuiteId, setEditingSuiteId] = useState<string | null>(null);
 
   // Site images state
   const [siteImages, setSiteImages] = useState<SiteImages>(() => {
@@ -487,7 +488,7 @@ const Admin: React.FC = () => {
 
   const handleAddSuite = (e: React.FormEvent) => {
     e.preventDefault();
-    if (newSuite.title && newSuite.price) {
+    if (newSuite.title) {
       addSuite({
         id: Date.now().toString(),
         title: newSuite.title!,
@@ -545,218 +546,165 @@ const Admin: React.FC = () => {
             {/* SUITES TAB */}
             {activeTab === 'suites' && (
               <div>
-                <h2 className="text-xl font-bold mb-6 flex items-center gap-2 text-brand-900">{l.manageSuites}</h2>
+                <div className="flex justify-between items-center mb-6">
+                  <h2 className="text-xl font-bold flex items-center gap-2 text-brand-900">{l.manageSuites}</h2>
+                  {!editingSuiteId && (
+                    <button 
+                      onClick={() => setEditingSuiteId('new')} 
+                      className="bg-brand-900 text-white px-4 py-2 rounded hover:bg-brand-700 flex items-center gap-2 text-sm font-medium transition-colors"
+                    >
+                      <Plus size={16} /> {l.addNewSuite}
+                    </button>
+                  )}
+                </div>
 
-                {/* Add Form */}
-                <form onSubmit={handleAddSuite} className="bg-slate-50 p-6 rounded-lg mb-8 border border-slate-200">
-                  <h3 className="font-bold mb-4 text-sm uppercase tracking-wide text-slate-500">{l.addNewSuite}</h3>
-                  <div className="grid md:grid-cols-2 gap-4 mb-4">
-                    <input
-                      placeholder={l.suiteName}
-                      className="p-2 border rounded"
-                      value={newSuite.title}
-                      onChange={e => setNewSuite({ ...newSuite, title: e.target.value })}
-                    />
-                    <input
-                      placeholder={l.price}
-                      className="p-2 border rounded"
-                      value={newSuite.price}
-                      onChange={e => setNewSuite({ ...newSuite, price: e.target.value })}
-                    />
-                    <div className="md:col-span-2">
-                      <label className="text-xs text-slate-500 font-bold uppercase flex justify-between items-center mb-1">
-                        <span>{l.imageUrl}</span>
-                        <label className="cursor-pointer text-brand-600 hover:text-brand-800 flex items-center gap-1 font-normal normal-case">
-                          <Upload size={14} /> Importar Nova Imagem
-                          <input type="file" accept="image/*" className="hidden" onChange={(e) => handleImageUpload(e, (base64) => setNewSuite({ ...newSuite, image: base64 }))} />
-                        </label>
-                      </label>
-                      <input
-                        placeholder="https://..."
-                        className="p-2 border rounded w-full"
-                        value={newSuite.image}
-                        onChange={e => setNewSuite({ ...newSuite, image: e.target.value })}
-                      />
-                    </div>
-                    <textarea
-                      placeholder={l.description}
-                      className="p-2 border rounded md:col-span-2"
-                      value={newSuite.desc}
-                      onChange={e => setNewSuite({ ...newSuite, desc: e.target.value })}
-                    />
-                    <textarea
-                      placeholder="Descrição Completa (opcional)"
-                      className="p-2 border rounded md:col-span-2 h-20"
-                      value={newSuite.fullDesc || ''}
-                      onChange={e => setNewSuite({ ...newSuite, fullDesc: e.target.value })}
-                    />
-                     <div className="md:col-span-2">
-                       <label className="text-xs text-slate-500 font-bold uppercase block mb-2">Comodidades (Selecione ou Edite os nomes)</label>
-                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 p-4 border rounded bg-white max-h-56 overflow-y-auto">
-                         {content.globalAmenities?.map((amenity, idx) => {
-                           const isChecked = newSuite.features?.includes(amenity) || false;
-                           const isEditing = editingAmenity?.id === 'new' && editingAmenity?.idx === idx;
-                           
-                           return (
-                             <div key={idx} className="flex items-center gap-2 text-sm p-1 rounded hover:bg-slate-50 border border-transparent hover:border-slate-200">
-                               {isEditing ? (
-                                 <div className="flex items-center gap-2 w-full">
-                                    <input 
-                                       autoFocus
-                                       value={editAmenityValue}
-                                       onChange={(e) => setEditAmenityValue(e.target.value)}
-                                       className="flex-1 p-1 border border-brand-500 rounded outline-none text-xs" 
-                                    />
-                                    <button 
-                                      type="button"
-                                      title="Salvar Nome"
-                                      onClick={() => {
-                                          if (!editAmenityValue.trim() || editAmenityValue === amenity) {
-                                              setEditingAmenity(null);
-                                              return;
-                                          }
-                                          const newVal = editAmenityValue.trim();
-                                          const newGlobals = [...(content.globalAmenities || [])];
-                                          newGlobals[idx] = newVal;
-                                          
-                                          let currentFeatures = [...(newSuite.features || [])];
-                                          if (currentFeatures.includes(amenity)) {
-                                             currentFeatures = currentFeatures.map(f => f === amenity ? newVal : f);
-                                             setNewSuite({ ...newSuite, features: currentFeatures });
-                                          }
-                                          updateContent({ ...content, globalAmenities: newGlobals });
-                                          setEditingAmenity(null);
-                                      }}
-                                      className="p-1 text-white bg-green-500 rounded hover:bg-green-600"
-                                    >
-                                      <Check size={14} />
-                                    </button>
-                                 </div>
-                               ) : (
-                                 <label className="flex items-center gap-2 cursor-pointer flex-1 min-w-0 pr-2">
-                                   <input
-                                     type="checkbox"
-                                     checked={isChecked}
-                                     onChange={(e) => {
-                                       const currentFeatures = newSuite.features || [];
-                                       if (e.target.checked) {
-                                         setNewSuite({ ...newSuite, features: [...currentFeatures, amenity] });
-                                       } else {
-                                         setNewSuite({ ...newSuite, features: currentFeatures.filter(f => f !== amenity) });
-                                       }
-                                     }}
-                                     className="w-4 h-4 text-brand-600 rounded focus:ring-brand-500 flex-shrink-0"
-                                   />
-                                   <span className="text-slate-700 truncate select-none" title={amenity}>{amenity}</span>
+                {editingSuiteId ? (() => {
+                  const isNew = editingSuiteId === 'new';
+                  const suiteToEdit = isNew ? newSuite : suites.find(s => s.id === editingSuiteId) || newSuite;
+                  
+                  const handleSave = (e: React.FormEvent) => {
+                    e.preventDefault();
+                    if (isNew) {
+                      if (suiteToEdit.title) {
+                        addSuite({
+                          id: Date.now().toString(),
+                          title: suiteToEdit.title!,
+                          price: suiteToEdit.price!,
+                          desc: suiteToEdit.desc || '',
+                          image: suiteToEdit.image || 'https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=80',
+                          gallery: suiteToEdit.gallery || [],
+                          features: suiteToEdit.features || [],
+                          fullDesc: suiteToEdit.fullDesc || ''
+                        });
+                        setEditingSuiteId(null);
+                        setNewSuite({ title: '', price: '', desc: '', image: '' });
+                      }
+                    } else {
+                      updateSuite(suiteToEdit as Suite);
+                      setEditingSuiteId(null);
+                    }
+                  };
+
+                  const handleChange = (field: keyof Suite, value: any) => {
+                    if (isNew) {
+                      setNewSuite({ ...newSuite, [field]: value });
+                    } else {
+                      updateSuite({ ...suiteToEdit as Suite, [field]: value });
+                    }
+                  };
+
+                  const handleGalleryAdd = (base64: string) => {
+                    const currentGallery = suiteToEdit.gallery || [];
+                    handleChange('gallery', [...currentGallery, base64]);
+                  };
+
+                  const handleGalleryRemove = (index: number) => {
+                    const currentGallery = suiteToEdit.gallery || [];
+                    handleChange('gallery', currentGallery.filter((_, i) => i !== index));
+                  };
+
+                  return (
+                    <div className="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden animate-fade-in-up">
+                      <div className="flex justify-between items-center p-5 border-b border-slate-200 bg-slate-50/50">
+                        <h3 className="font-bold text-lg text-brand-900 flex items-center gap-2">
+                          <Edit2 size={18} className="text-brand-500" />
+                          {isNew ? 'Criando Nova Suíte' : `Editando: ${suiteToEdit.title}`}
+                        </h3>
+                        <div className="flex gap-2">
+                          <button 
+                            type="button" 
+                            onClick={() => {
+                              setEditingSuiteId(null);
+                              setNewSuite({ title: '', price: '', desc: '', image: '' });
+                            }} 
+                            className="px-4 py-2 text-slate-500 hover:text-slate-700 hover:bg-slate-100 rounded-md flex items-center gap-2 transition-colors text-sm font-medium"
+                          >
+                           <X size={16} /> Voltar
+                          </button>
+                        </div>
+                      </div>
+
+                      <div className="p-6">
+                        <div className="grid lg:grid-cols-2 gap-8">
+                          {/* Coluna 1: Informações Básicas */}
+                          <div className="space-y-5">
+                            <h4 className="flex items-center gap-2 font-bold text-slate-800 border-b border-slate-100 pb-3">Informações Básicas</h4>
+                            <div>
+                               <label className="text-xs text-slate-500 font-bold uppercase block mb-1">{l.suiteName}</label>
+                               <input value={suiteToEdit.title || ''} onChange={e => handleChange('title', e.target.value)} className="w-full p-2.5 border border-slate-300 rounded-md focus:border-brand-500 focus:ring-1 focus:ring-brand-500 outline-none transition-all" />
+                            </div>
+                            <div>
+                               <label className="text-xs text-slate-500 font-bold uppercase block mb-1">{l.description}</label>
+                               <textarea value={suiteToEdit.desc || ''} onChange={e => handleChange('desc', e.target.value)} className="w-full p-2.5 border border-slate-300 rounded-md h-24 outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all resize-none" placeholder="Descrição curta (1-2 frases)" />
+                            </div>
+                            <div>
+                               <label className="text-xs text-slate-500 font-bold uppercase block mb-1">Descrição Completa</label>
+                               <textarea value={suiteToEdit.fullDesc || ''} onChange={e => handleChange('fullDesc', e.target.value)} className="w-full p-2.5 border border-slate-300 rounded-md h-32 outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all resize-none" placeholder="Descrição completa de detalhes da comodidade..." />
+                            </div>
+                          </div>
+
+                          {/* Coluna 2: Imagens e Galeria */}
+                          <div className="space-y-5">
+                            <h4 className="flex items-center gap-2 font-bold text-slate-800 border-b border-slate-100 pb-3">Imagens e Fotografia</h4>
+                            <div>
+                               <label className="text-xs text-slate-500 font-bold uppercase flex justify-between items-center mb-2">
+                                 <span>{l.imageUrl} (Foto Principal)</span>
+                                 <label className="cursor-pointer text-brand-600 hover:text-brand-800 flex items-center gap-1.5 font-normal normal-case text-sm bg-brand-50 hover:bg-brand-100 px-3 py-1.5 rounded-md transition-colors">
+                                   <Upload size={14} /> Substituir Foto Principal
+                                   <input type="file" accept="image/*" className="hidden" onChange={(e) => handleImageUpload(e, (b64) => handleChange('image', b64))} />
                                  </label>
+                               </label>
+                               {suiteToEdit.image && (
+                                 <div className="mb-3 relative w-full h-40 rounded-lg overflow-hidden border border-slate-200 shadow-sm">
+                                   <img src={suiteToEdit.image} alt="" className="w-full h-full object-cover" />
+                                 </div>
                                )}
-                               {!isEditing && (
-                                   <button 
-                                     type="button" 
-                                     title="Editar Comodidade"
-                                     onClick={() => {
-                                         setEditingAmenity({ id: 'new', idx });
-                                         setEditAmenityValue(amenity);
-                                     }}
-                                     className="text-slate-400 hover:text-brand-600 p-1"
-                                   >
-                                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>
-                                   </button>
-                               )}
-                             </div>
-                           );
-                         })}
-                       </div>
-                     </div>
-                   </div>
-                   <button type="submit" className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 flex items-center gap-2">
-                    <Plus size={16} /> {l.add}
-                  </button>
-                </form>
+                               <input value={suiteToEdit.image || ''} onChange={e => handleChange('image', e.target.value)} className="w-full p-2 border border-slate-200 bg-slate-50 rounded-md outline-none text-xs text-slate-500" placeholder="https://..." />
+                            </div>
+                            
+                            <div className="pt-2">
+                               <label className="text-xs text-slate-500 font-bold uppercase flex justify-between items-center mb-3">
+                                 <span>Galeria do Carrossel</span>
+                                 <label className="cursor-pointer text-brand-600 hover:text-brand-800 flex items-center gap-1.5 font-normal normal-case text-sm bg-brand-50 hover:bg-brand-100 px-3 py-1.5 rounded-md transition-colors">
+                                   <Upload size={14} /> Adicionar Nova Foto
+                                   <input type="file" accept="image/*" className="hidden" onChange={(e) => handleImageUpload(e, handleGalleryAdd)} />
+                                 </label>
+                               </label>
+                               
+                               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                                 {suiteToEdit.gallery?.map((img, index) => (
+                                   <div key={index} className="relative aspect-square group rounded-md overflow-hidden shadow-sm border border-slate-200">
+                                     <img src={img} alt="" className="w-full h-full object-cover" />
+                                     <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                       <button type="button" onClick={() => handleGalleryRemove(index)} className="bg-red-500 text-white p-2.5 rounded-full hover:bg-red-600 transform hover:scale-110 transition-transform" title="Remover Foto">
+                                         <Trash2 size={16} />
+                                       </button>
+                                     </div>
+                                   </div>
+                                 ))}
+                                 {(!suiteToEdit.gallery || suiteToEdit.gallery.length === 0) && (
+                                   <div className="col-span-full py-8 text-center border-2 border-dashed border-slate-300 rounded-lg text-slate-400 bg-slate-50">
+                                     <Images className="w-8 h-8 mx-auto mb-2 text-slate-300" />
+                                     <p className="text-sm">Nenhuma foto extra cadastrada.</p>
+                                   </div>
+                                 )}
+                               </div>
+                            </div>
+                          </div>
+                        </div>
 
-                {/* List */}
-                <div className="space-y-4">
-                  {suites.map(suite => (
-                    <div key={suite.id} className="flex flex-col gap-4 p-6 border rounded-lg bg-white shadow-sm hover:shadow-md transition-shadow">
-                      <div className="flex flex-col md:flex-row gap-6">
-                        <img src={suite.image} alt="" className="w-32 h-32 object-cover rounded bg-slate-200 border" />
-                        <div className="flex-1 space-y-3">
-                          <div className="flex gap-4">
-                            <div className="flex-1">
-                              <label className="text-xs text-slate-500 font-bold uppercase block mb-1">{l.suiteName}</label>
-                              <input
-                                value={suite.title}
-                                onChange={(e) => updateSuite({ ...suite, title: e.target.value })}
-                                className="font-bold text-lg p-2 border rounded focus:border-brand-500 outline-none w-full bg-slate-50"
-                              />
-                            </div>
-                            <div className="w-1/3">
-                              <label className="text-xs text-slate-500 font-bold uppercase block mb-1">{l.price}</label>
-                              <input
-                                value={suite.price}
-                                onChange={(e) => updateSuite({ ...suite, price: e.target.value })}
-                                className="text-brand-500 text-sm p-2 border rounded focus:border-brand-500 outline-none w-full bg-slate-50"
-                              />
-                            </div>
-                          </div>
-                          <div>
-                            <label className="text-xs text-slate-500 font-bold uppercase flex justify-between items-center mb-1">
-                              <span>{l.imageUrl}</span>
-                              <label className="cursor-pointer text-brand-600 hover:text-brand-800 flex items-center gap-1 font-normal normal-case">
-                                <Upload size={14} /> Alterar Imagem
-                                <input type="file" accept="image/*" className="hidden" onChange={(e) => handleImageUpload(e, (base64) => updateSuite({ ...suite, image: base64 }))} />
-                              </label>
-                            </label>
-                            <input
-                              value={suite.image}
-                              onChange={(e) => updateSuite({ ...suite, image: e.target.value })}
-                              className="text-sm p-2 border rounded focus:border-brand-500 outline-none w-full bg-slate-50 text-slate-600"
-                            />
-                          </div>
-                          <div>
-                            <label className="text-xs text-slate-500 font-bold uppercase block mb-1">{l.description}</label>
-                            <textarea
-                              value={suite.desc}
-                              onChange={(e) => updateSuite({ ...suite, desc: e.target.value })}
-                              className="text-sm p-2 border rounded focus:border-brand-500 outline-none w-full bg-slate-50 text-slate-600 h-20"
-                            />
-                          </div>
-                          <div>
-                            <label className="text-xs text-slate-500 font-bold uppercase block mb-1">Descrição Completa</label>
-                            <textarea
-                              value={suite.fullDesc || ''}
-                              onChange={(e) => updateSuite({ ...suite, fullDesc: e.target.value })}
-                              className="text-sm p-2 border rounded focus:border-brand-500 outline-none w-full bg-slate-50 text-slate-600 h-32"
-                              placeholder="Descrição detalhada sobre o conforto e decoração da suíte..."
-                            />
-                          </div>
-                          <div>
-                            <label className="text-xs text-slate-500 font-bold uppercase flex justify-between items-center mb-1">
-                              <span>Fotos da Galeria (URLs separadas por vírgula)</span>
-                              <label className="cursor-pointer text-brand-600 hover:text-brand-800 flex items-center gap-1 font-normal normal-case">
-                                <Upload size={14} /> Adicionar Foto Local
-                                <input type="file" accept="image/*" className="hidden" onChange={(e) => handleImageUpload(e, (base64) => {
-                                  const currentGallery = suite.gallery || [];
-                                  updateSuite({ ...suite, gallery: [...currentGallery, base64] });
-                                })} />
-                              </label>
-                            </label>
-                            <textarea
-                              value={suite.gallery?.join(', ') || ''}
-                              onChange={(e) => updateSuite({ ...suite, gallery: e.target.value.split(',').map(s => s.trim()).filter(Boolean) })}
-                              className="text-sm p-2 border rounded focus:border-brand-500 outline-none w-full bg-slate-50 text-slate-600 h-16 font-mono"
-                              placeholder="/suites/suite1/2.jpeg, /suites/suite1/3.jpeg"
-                            />
-                          </div>
-                          <div>
-                            <label className="text-xs text-slate-500 font-bold uppercase block mb-2">Comodidades (Selecione ou Edite os nomes)</label>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 p-3 border rounded bg-white h-44 overflow-y-auto w-full">
-                              {content.globalAmenities?.map((amenity, idx) => {
-                                const isChecked = suite.features?.includes(amenity) || false;
-                                const isEditing = editingAmenity?.id === suite.id && editingAmenity?.idx === idx;
+                        {/* Linha Inteira: Comodidades */}
+                        <div className="mt-10">
+                           <h4 className="flex items-center gap-2 font-bold text-slate-800 border-b border-slate-100 pb-3 mb-5">
+                             Quais são as comodidades desta suíte?
+                           </h4>
+                           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                             {content.globalAmenities?.map((amenity, idx) => {
+                                const isChecked = suiteToEdit.features?.includes(amenity) || false;
+                                const isEditing = editingAmenity?.id === suiteToEdit.id && editingAmenity?.idx === idx;
 
                                 return (
-                                  <div key={idx} className="flex items-center gap-2 text-sm p-1 rounded hover:bg-slate-50 border border-transparent hover:border-slate-200">
+                                  <div key={idx} className={`flex items-center gap-2 text-sm p-2 rounded-md border transition-colors ${isChecked ? 'bg-brand-50 border-brand-200' : 'bg-white border-slate-200 hover:border-slate-300'}`}>
                                      {isEditing ? (
                                        <div className="flex items-center gap-2 w-full">
                                           <input 
@@ -767,7 +715,6 @@ const Admin: React.FC = () => {
                                           />
                                           <button 
                                             type="button"
-                                            title="Salvar Nome"
                                             onClick={() => {
                                                 if (!editAmenityValue.trim() || editAmenityValue === amenity) {
                                                     setEditingAmenity(null);
@@ -777,65 +724,120 @@ const Admin: React.FC = () => {
                                                 const newGlobals = [...(content.globalAmenities || [])];
                                                 newGlobals[idx] = newVal;
                                                 
-                                                let currentFeatures = [...(suite.features || [])];
+                                                let currentFeatures = [...(suiteToEdit.features || [])];
                                                 if (currentFeatures.includes(amenity)) {
                                                    currentFeatures = currentFeatures.map(f => f === amenity ? newVal : f);
-                                                   updateSuite({ ...suite, features: currentFeatures });
+                                                   handleChange('features', currentFeatures);
                                                 }
                                                 updateContent({ ...content, globalAmenities: newGlobals });
                                                 setEditingAmenity(null);
                                             }}
-                                            className="p-1 text-white bg-green-500 rounded hover:bg-green-600"
+                                            className="p-1 text-white bg-green-500 rounded hover:bg-green-600 shadow-sm"
                                           >
                                             <Check size={14} />
                                           </button>
                                        </div>
                                      ) : (
-                                        <label className="flex items-center gap-2 cursor-pointer flex-1 min-w-0 pr-2">
+                                        <label className="flex items-center gap-2.5 cursor-pointer flex-1 min-w-0 pr-1">
                                           <input
                                             type="checkbox"
                                             checked={isChecked}
                                             onChange={(e) => {
-                                              const currentFeatures = suite.features || [];
+                                              const currentFeatures = suiteToEdit.features || [];
                                               if (e.target.checked) {
-                                                updateSuite({ ...suite, features: [...currentFeatures, amenity] });
+                                                handleChange('features', [...currentFeatures, amenity]);
                                               } else {
-                                                updateSuite({ ...suite, features: currentFeatures.filter(f => f !== amenity) });
+                                                handleChange('features', currentFeatures.filter(f => f !== amenity));
                                               }
                                             }}
                                             className="w-4 h-4 text-brand-600 rounded focus:ring-brand-500 flex-shrink-0"
                                           />
-                                          <span className="text-slate-700 truncate select-none" title={amenity}>{amenity}</span>
+                                          <span className={`truncate select-none ${isChecked ? 'text-brand-900 font-medium' : 'text-slate-600'}`} title={amenity}>{amenity}</span>
                                         </label>
                                      )}
                                      {!isEditing && (
                                          <button 
                                            type="button" 
-                                           title="Editar Comodidade"
                                            onClick={() => {
-                                               setEditingAmenity({ id: suite.id, idx });
+                                               setEditingAmenity({ id: suiteToEdit.id || 'new', idx });
                                                setEditAmenityValue(amenity);
                                            }}
-                                           className="text-slate-400 hover:text-brand-600 p-1"
+                                           className="text-slate-400 hover:text-brand-600 p-1 flex-shrink-0"
+                                           title="Editar nome geral"
                                          >
-                                           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>
+                                           <Edit2 size={12} />
                                          </button>
                                      )}
                                   </div>
                                 );
-                              })}
-                            </div>
-                          </div>
+                             })}
+                           </div>
                         </div>
-                        <div className="flex items-start">
-                          <button onClick={() => deleteSuite(suite.id)} className="p-2 text-red-500 hover:bg-red-50 rounded" title="Excluir Suite">
-                            <Trash2 size={24} />
+
+                        {/* Save Actions */}
+                        <div className="mt-8 flex justify-end gap-3 pt-6 border-t border-slate-100">
+                          <button 
+                             type="button" 
+                             onClick={() => {
+                               setEditingSuiteId(null);
+                               setNewSuite({ title: '', price: '', desc: '', image: '' });
+                             }} 
+                             className="px-6 py-2.5 border border-slate-200 text-slate-600 rounded-lg hover:bg-slate-50 font-medium transition-colors"
+                          >
+                            Calcelar
+                          </button>
+                          <button 
+                             type="button"
+                             onClick={handleSave}
+                             className="px-8 py-2.5 bg-brand-900 text-white rounded-lg hover:bg-brand-800 flex items-center gap-2 font-medium shadow-md transition-colors"
+                          >
+                            <Save size={18} /> {isNew ? 'Criar Suíte' : 'Salvar Alterações'}
                           </button>
                         </div>
                       </div>
                     </div>
-                  ))}
-                </div>
+                  );
+                })() : (
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in-up">
+                    {suites.map(suite => (
+                      <div key={suite.id} className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col group">
+                        <div className="relative h-48 bg-slate-100 overflow-hidden">
+                          <img src={suite.image} alt={suite.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        </div>
+                        <div className="p-5 flex-1 flex flex-col">
+                          <h3 className="font-serif font-bold text-xl text-brand-900 mb-2">{suite.title}</h3>
+                          <p className="text-sm text-slate-500 line-clamp-2 mb-5 flex-1 leading-relaxed">{suite.desc}</p>
+                          <div className="flex gap-3 pt-4 border-t border-slate-100">
+                            <button 
+                              onClick={() => setEditingSuiteId(suite.id)} 
+                              className="flex-1 bg-brand-50 hover:bg-brand-100 text-brand-700 py-2.5 rounded-lg flex items-center justify-center gap-2 font-medium transition-colors text-sm"
+                            >
+                              <Edit2 size={16} /> Editar Completamente
+                            </button>
+                            <button 
+                              onClick={() => {
+                                if(window.confirm(`Tem certeza que deseja excluir permanentemente a suite "${suite.title}"?`)) {
+                                  deleteSuite(suite.id);
+                                }
+                              }} 
+                              className="px-4 bg-red-50 hover:bg-red-500 text-red-600 hover:text-white rounded-lg flex items-center justify-center transition-colors shadow-sm"
+                              title="Excluir Suíte"
+                            >
+                              <Trash2 size={18} />
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                    {suites.length === 0 && (
+                      <div className="col-span-full py-16 text-center border-2 border-dashed rounded-2xl border-slate-200 bg-slate-50/50 text-slate-400">
+                        <BedDouble className="w-12 h-12 mx-auto mb-4 text-slate-300" />
+                        <h3 className="text-lg font-bold text-slate-500 mb-1">Nenhuma acomodação</h3>
+                        <p className="text-sm">Clique no botão superior para cadastrar a primeira suíte.</p>
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
             )}
 

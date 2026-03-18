@@ -3,6 +3,7 @@ import { useContent } from '../context/ContentContext';
 import { useLanguage } from '../context/LanguageContext';
 import { useNavigate } from 'react-router-dom';
 import { Check, MessageCircle } from 'lucide-react';
+import Carousel from '../components/Carousel';
 
 const SuitesPage: React.FC = () => {
   const { suites } = useContent();
@@ -31,15 +32,15 @@ const SuitesPage: React.FC = () => {
 
               <div className="w-full md:w-1/2">
                 <div
-                  className="relative group overflow-hidden rounded-sm shadow-xl cursor-pointer"
+                  className="relative group overflow-hidden rounded-sm shadow-xl cursor-pointer h-[400px]"
                   onClick={() => navigate(`/suites/${suite.id}`)}
                 >
-                  <img
-                    src={suite.image}
-                    alt={suite.title}
-                    className="w-full h-[400px] object-cover transition-transform duration-700 group-hover:scale-105"
+                  <Carousel 
+                    images={[suite.image, ...(suite.gallery || [])]} 
+                    className="w-full h-full"
+                    imageClassName="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-brand-900/0 group-hover:bg-brand-900/20 transition-colors duration-300"></div>
+                  <div className="absolute inset-0 bg-brand-900/0 group-hover:bg-brand-900/10 transition-colors duration-300 pointer-events-none"></div>
                 </div>
               </div>
 

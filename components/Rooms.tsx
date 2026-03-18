@@ -2,6 +2,7 @@ import React from 'react';
 import { useContent } from '../context/ContentContext';
 import { useLanguage } from '../context/LanguageContext';
 import { useNavigate } from 'react-router-dom';
+import Carousel from './Carousel';
 
 interface RoomsProps {
   limit?: number;
@@ -30,11 +31,10 @@ const Rooms: React.FC<RoomsProps> = ({ limit }) => {
               onClick={() => navigate(`/suites/${room.id}`)}
             >
               <div className="overflow-hidden mb-6 relative h-80 bg-slate-100">
-                <div className="absolute inset-0 bg-brand-900/0 group-hover:bg-brand-900/10 transition-colors z-10 duration-500"></div>
-                <img
-                  src={room.image}
-                  alt={room.title}
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                <Carousel 
+                  images={[room.image, ...(room.gallery || [])]} 
+                  className="w-full h-full"
+                  imageClassName="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                 />
               </div>
               <h3 className="text-2xl font-serif text-brand-900 mb-2 group-hover:text-brand-500 transition-colors">{room.title}</h3>

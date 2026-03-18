@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowDown } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 const Hero: React.FC = () => {
   const { language, t } = useLanguage();
+  const [currentImage, setCurrentImage] = useState(0);
+
+  const heroImages = [
+    'https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=2070&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1540541338287-41700207dee6?q=80&w=2070&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=2080&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?q=80&w=2070&auto=format&fit=crop',
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImage((prev) => (prev === heroImages.length - 1 ? 0 : prev + 1));
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
 
   // Translated hero content
   const heroContent = {
@@ -25,13 +40,18 @@ const Hero: React.FC = () => {
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      {/* Background Image Overlay */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-[20s] hover:scale-105"
-        style={{ backgroundImage: `url('https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=2070&auto=format&fit=crop')` }}
-      >
-        <div className="absolute inset-0 bg-black/30"></div>
-      </div>
+      {/* Background Image Overlay Carousel */}
+      {heroImages.map((img, idx) => (
+        <div
+          key={idx}
+          className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 ease-in-out ${
+            idx === currentImage ? 'opacity-100 scale-105' : 'opacity-0 scale-100'
+          }`}
+          style={{ backgroundImage: `url('${img}')` }}
+        >
+          <div className="absolute inset-0 bg-black/40"></div>
+        </div>
+      ))}
 
       {/* Content */}
       <div className="relative h-full container mx-auto px-6 flex flex-col justify-center items-center text-center text-white">
