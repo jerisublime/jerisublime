@@ -711,7 +711,7 @@ const Admin: React.FC = () => {
                                              autoFocus
                                              value={editAmenityValue}
                                              onChange={(e) => setEditAmenityValue(e.target.value)}
-                                             className="flex-1 p-1 border border-brand-500 rounded outline-none text-xs" 
+                                             className="flex-1 min-w-0 p-1.5 border border-brand-500 rounded outline-none text-xs" 
                                           />
                                           <button 
                                             type="button"
@@ -732,9 +732,9 @@ const Admin: React.FC = () => {
                                                 updateContent({ ...content, globalAmenities: newGlobals });
                                                 setEditingAmenity(null);
                                             }}
-                                            className="p-1 text-white bg-green-500 rounded hover:bg-green-600 shadow-sm"
+                                            className="p-1.5 text-white bg-green-500 rounded hover:bg-green-600 shadow-sm flex-shrink-0 flex items-center justify-center"
                                           >
-                                            <Check size={14} />
+                                            <Check size={16} />
                                           </button>
                                        </div>
                                      ) : (
