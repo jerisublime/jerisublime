@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useContent } from '../context/ContentContext';
 import { useLanguage } from '../context/LanguageContext';
-import { Trash2, Plus, Lock, LayoutDashboard, BedDouble, FileText, Image, Settings, Key, Save, CheckCircle, Images, Edit2, X, Mail, UserPlus, Shield, Upload, Check } from 'lucide-react';
+import { Trash2, Plus, Lock, LayoutDashboard, BedDouble, FileText, Image, Settings, Key, Save, CheckCircle, Images, Edit2, X, Mail, UserPlus, Shield, Upload, Check, Play, ChevronUp, ChevronDown, MonitorPlay } from 'lucide-react';
 import { Suite } from '../types';
 
 // Gallery image type
@@ -63,11 +63,30 @@ const Admin: React.FC = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [loginError, setLoginError] = useState('');
 
-  const [activeTab, setActiveTab] = useState<'content' | 'suites' | 'images' | 'gallery' | 'settings'>('suites');
+  const [activeTab, setActiveTab] = useState<'content' | 'suites' | 'images' | 'gallery' | 'slide' | 'settings'>('suites');
   const [newSuite, setNewSuite] = useState<Partial<Suite>>({
     title: '', price: '', desc: '', image: ''
   });
   const [editingSuiteId, setEditingSuiteId] = useState<string | null>(null);
+
+  // Hero slide images state
+  const [heroSlideImages, setHeroSlideImages] = useState<string[]>(() => {
+    const savedContent = localStorage.getItem('jeri_content');
+    if (savedContent) {
+      try {
+        const parsed = JSON.parse(savedContent);
+        if (parsed.heroImages && parsed.heroImages.length > 0) return parsed.heroImages;
+      } catch (e) {}
+    }
+    return [
+      '/images/sunset-palms.jpg',
+      '/images/lagoa-praia.jpg',
+      '/images/pescadores.jpg',
+      '/images/sunset-kite.jpg',
+    ];
+  });
+  const [newSlideUrl, setNewSlideUrl] = useState('');
+  const [slideSaved, setSlideSaved] = useState(false);
 
   // Site images state
   const [siteImages, setSiteImages] = useState<SiteImages>(() => {
@@ -99,6 +118,32 @@ const Admin: React.FC = () => {
   const [newEmail, setNewEmail] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [credentialsSaved, setCredentialsSaved] = useState(false);
+
+  // Save hero slide images
+  const saveSlideImages = () => {
+    updateContent({ ...content, heroImages: heroSlideImages });
+    setSlideSaved(true);
+    setTimeout(() => setSlideSaved(false), 3000);
+  };
+
+  const addSlideImage = (src: string) => {
+    if (src) {
+      setHeroSlideImages(prev => [...prev, src]);
+      setNewSlideUrl('');
+    }
+  };
+
+  const removeSlideImage = (index: number) => {
+    setHeroSlideImages(prev => prev.filter((_, i) => i !== index));
+  };
+
+  const moveSlideImage = (index: number, direction: 'up' | 'down') => {
+    const newImages = [...heroSlideImages];
+    const targetIndex = direction === 'up' ? index - 1 : index + 1;
+    if (targetIndex < 0 || targetIndex >= newImages.length) return;
+    [newImages[index], newImages[targetIndex]] = [newImages[targetIndex], newImages[index]];
+    setHeroSlideImages(newImages);
+  };
 
   // Save site images to localStorage
   const saveSiteImages = () => {
@@ -521,6 +566,12 @@ const Admin: React.FC = () => {
               <BedDouble size={20} /> {l.suites}
             </button>
             <button
+              onClick={() => setActiveTab('slide')}
+              className={`w-full text-left p-4 rounded flex items-center gap-3 transition-colors ${activeTab === 'slide' ? 'bg-brand-900 text-white shadow-md' : 'bg-white text-slate-600 hover:bg-slate-100'}`}
+            >
+              <MonitorPlay size={20} /> Slide Inicial
+            </button>
+            <button
               onClick={() => setActiveTab('gallery')}
               className={`w-full text-left p-4 rounded flex items-center gap-3 transition-colors ${activeTab === 'gallery' ? 'bg-brand-900 text-white shadow-md' : 'bg-white text-slate-600 hover:bg-slate-100'}`}
             >
@@ -838,6 +889,119 @@ const Admin: React.FC = () => {
                     )}
                   </div>
                 )}
+              </div>
+            )}
+
+            {/* SLIDE TAB */}
+            {activeTab === 'slide' && (
+              <div>
+                <div className="flex justify-between items-center mb-6">
+                  <h2 className="text-xl font-bold flex items-center gap-2 text-brand-900">
+                    <MonitorPlay size={24} /> Slide da Tela Inicial
+                  </h2>
+                  <span className="text-sm text-slate-500">{heroSlideImages.length} imagens</span>
+                </div>
+
+                <p className="text-sm text-slate-500 mb-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
+                  <strong>💡 Dica:</strong> Estas são as imagens que ficam passando automaticamente na tela inicial do site. Você pode adicionar, remover e reordenar as imagens.
+                </p>
+
+                {/* Add New Slide Image */}
+                <div className="bg-slate-50 p-6 rounded-lg mb-8 border border-slate-200">
+                  <h3 className="font-bold mb-4 text-sm uppercase tracking-wide text-slate-500">Adicionar Nova Imagem ao Slide</h3>
+                  <div className="flex gap-3 items-end">
+                    <div className="flex-1">
+                      <label className="text-xs text-slate-500 font-bold uppercase flex justify-between items-center mb-1">
+                        <span>URL da Imagem</span>
+                        <label className="cursor-pointer text-brand-600 hover:text-brand-800 flex items-center gap-1.5 font-normal normal-case text-sm bg-brand-50 hover:bg-brand-100 px-3 py-1.5 rounded-md transition-colors">
+                          <Upload size={14} /> Importar do Computador
+                          <input type="file" accept="image/*" className="hidden" onChange={(e) => handleImageUpload(e, (base64) => addSlideImage(base64))} />
+                        </label>
+                      </label>
+                      <input
+                        placeholder="https://... ou importe do computador"
+                        className="w-full p-3 border border-slate-300 rounded-md focus:border-brand-500 focus:ring-1 focus:ring-brand-500 outline-none"
+                        value={newSlideUrl}
+                        onChange={e => setNewSlideUrl(e.target.value)}
+                      />
+                    </div>
+                    <button
+                      onClick={() => addSlideImage(newSlideUrl)}
+                      disabled={!newSlideUrl}
+                      className="bg-green-600 text-white px-5 py-3 rounded-md hover:bg-green-700 flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed font-medium transition-colors"
+                    >
+                      <Plus size={18} /> Adicionar
+                    </button>
+                  </div>
+                  {newSlideUrl && (
+                    <div className="mt-3">
+                      <p className="text-xs text-slate-500 mb-1">Pré-visualização:</p>
+                      <img src={newSlideUrl} alt="Preview" className="w-48 h-28 object-cover rounded border border-slate-200" />
+                    </div>
+                  )}
+                </div>
+
+                {/* Slide Images List */}
+                <div className="space-y-3 mb-8">
+                  {heroSlideImages.map((img, index) => (
+                    <div key={index} className="flex items-center gap-4 bg-white border border-slate-200 rounded-xl p-3 hover:shadow-md transition-shadow group">
+                      <div className="flex flex-col gap-1">
+                        <button
+                          onClick={() => moveSlideImage(index, 'up')}
+                          disabled={index === 0}
+                          className="p-1.5 rounded hover:bg-slate-100 text-slate-400 hover:text-slate-700 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                          title="Mover para cima"
+                        >
+                          <ChevronUp size={16} />
+                        </button>
+                        <button
+                          onClick={() => moveSlideImage(index, 'down')}
+                          disabled={index === heroSlideImages.length - 1}
+                          className="p-1.5 rounded hover:bg-slate-100 text-slate-400 hover:text-slate-700 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                          title="Mover para baixo"
+                        >
+                          <ChevronDown size={16} />
+                        </button>
+                      </div>
+                      <div className="w-36 h-20 rounded-lg overflow-hidden border border-slate-200 flex-shrink-0">
+                        <img src={img} alt={`Slide ${index + 1}`} className="w-full h-full object-cover" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-bold text-brand-900">Slide {index + 1}</p>
+                        <p className="text-xs text-slate-400 truncate" title={img}>{img.length > 60 ? '...' + img.slice(-57) : img}</p>
+                      </div>
+                      <button
+                        onClick={() => removeSlideImage(index)}
+                        className="p-2.5 bg-red-50 hover:bg-red-500 text-red-500 hover:text-white rounded-lg transition-colors flex-shrink-0"
+                        title="Remover imagem"
+                      >
+                        <Trash2 size={18} />
+                      </button>
+                    </div>
+                  ))}
+                  {heroSlideImages.length === 0 && (
+                    <div className="py-16 text-center border-2 border-dashed rounded-2xl border-slate-200 bg-slate-50/50 text-slate-400">
+                      <MonitorPlay className="w-12 h-12 mx-auto mb-4 text-slate-300" />
+                      <h3 className="text-lg font-bold text-slate-500 mb-1">Nenhuma imagem no slide</h3>
+                      <p className="text-sm">Adicione imagens acima para criar o carrossel da tela inicial.</p>
+                    </div>
+                  )}
+                </div>
+
+                {/* Save Button */}
+                <div className="flex items-center gap-4">
+                  <button
+                    onClick={saveSlideImages}
+                    className="bg-brand-900 text-white px-8 py-3 rounded-lg hover:bg-brand-800 transition-colors flex items-center gap-2 font-medium shadow-md"
+                  >
+                    <Save size={18} /> Salvar Slide
+                  </button>
+                  {slideSaved && (
+                    <span className="text-green-600 flex items-center gap-1 animate-fade-in font-medium">
+                      <CheckCircle size={18} /> Slide salvo com sucesso! As alterações já estão no ar.
+                    </span>
+                  )}
+                </div>
               </div>
             )}
 

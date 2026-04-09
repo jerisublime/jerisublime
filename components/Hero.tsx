@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowDown } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { useContent } from '../context/ContentContext';
 
 const Hero: React.FC = () => {
   const { language, t } = useLanguage();
+  const { content } = useContent();
   const [currentImage, setCurrentImage] = useState(0);
 
-  const heroImages = [
+  const defaultImages = [
     '/images/sunset-palms.jpg',
     '/images/lagoa-praia.jpg',
     '/images/pescadores.jpg',
     '/images/sunset-kite.jpg',
   ];
+
+  const heroImages = content.heroImages && content.heroImages.length > 0 
+    ? content.heroImages 
+    : defaultImages;
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -36,7 +42,7 @@ const Hero: React.FC = () => {
     },
   };
 
-  const content = heroContent[language];
+  const heroText = heroContent[language];
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
@@ -59,10 +65,10 @@ const Hero: React.FC = () => {
           {t.hero.welcome}
         </span>
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold mb-6 leading-tight animate-fade-in-up delay-100">
-          {content.title}
+          {heroText.title}
         </h1>
         <p className="max-w-xl text-lg md:text-xl font-light mb-10 opacity-90 animate-fade-in-up delay-200">
-          {content.subtitle}
+          {heroText.subtitle}
         </p>
 
         <button

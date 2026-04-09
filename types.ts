@@ -23,6 +23,7 @@ export interface SiteContent {
   heroSubtitle: string;
   amenitiesTitle?: string;
   globalAmenities?: string[];
+  heroImages?: string[];
 }
 
 // Admin credentials stored in localStorage

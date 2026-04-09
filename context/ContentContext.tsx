@@ -180,6 +180,12 @@ const defaultContent: SiteContent = {
     "Frigobar",
     "Cofre Digital",
     "TV Smart 55\""
+  ],
+  heroImages: [
+    '/images/sunset-palms.jpg',
+    '/images/lagoa-praia.jpg',
+    '/images/pescadores.jpg',
+    '/images/sunset-kite.jpg',
   ]
 };
 
