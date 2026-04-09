@@ -45,7 +45,7 @@ const About: React.FC = () => {
           </div>
           <div className="relative">
             <img
-              src="https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&w=800&q=80"
+              src="/images/interior.jpg"
               alt="Interior do Hotel"
               className="w-full h-[600px] object-cover rounded-sm shadow-2xl grayscale hover:grayscale-0 transition-all duration-700"
             />

@@ -7,10 +7,10 @@ const Hero: React.FC = () => {
   const [currentImage, setCurrentImage] = useState(0);
 
   const heroImages = [
-    'https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=2070&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1540541338287-41700207dee6?q=80&w=2070&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=2080&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?q=80&w=2070&auto=format&fit=crop',
+    '/images/sunset-palms.jpg',
+    '/images/lagoa-praia.jpg',
+    '/images/pescadores.jpg',
+    '/images/sunset-kite.jpg',
   ];
 
   useEffect(() => {
