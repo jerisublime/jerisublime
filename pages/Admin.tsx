@@ -749,13 +749,13 @@ const Admin: React.FC = () => {
                            <h4 className="flex items-center gap-2 font-bold text-slate-800 border-b border-slate-100 pb-3 mb-5">
                              Quais são as comodidades desta suíte?
                            </h4>
-                           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                              {content.globalAmenities?.map((amenity, idx) => {
                                 const isChecked = suiteToEdit.features?.includes(amenity) || false;
                                 const isEditing = editingAmenity?.id === suiteToEdit.id && editingAmenity?.idx === idx;
 
                                 return (
-                                  <div key={idx} className={`flex items-center gap-2 text-sm p-2 rounded-md border transition-colors ${isChecked ? 'bg-brand-50 border-brand-200' : 'bg-white border-slate-200 hover:border-slate-300'}`}>
+                                  <div key={idx} className={`flex items-start gap-2 text-sm p-3 rounded-md border transition-colors ${isChecked ? 'bg-brand-50 border-brand-200 shadow-sm' : 'bg-white border-slate-200 hover:border-slate-300'}`}>
                                      {isEditing ? (
                                        <div className="flex items-center gap-2 w-full">
                                           <input 
@@ -789,7 +789,7 @@ const Admin: React.FC = () => {
                                           </button>
                                        </div>
                                      ) : (
-                                        <label className="flex items-center gap-2.5 cursor-pointer flex-1 min-w-0 pr-1">
+                                        <label className="flex items-start gap-3 cursor-pointer flex-1 min-w-0 mt-0.5">
                                           <input
                                             type="checkbox"
                                             checked={isChecked}
@@ -801,9 +801,9 @@ const Admin: React.FC = () => {
                                                 handleChange('features', currentFeatures.filter(f => f !== amenity));
                                               }
                                             }}
-                                            className="w-4 h-4 text-brand-600 rounded focus:ring-brand-500 flex-shrink-0"
+                                            className="mt-0.5 w-4 h-4 text-brand-600 rounded focus:ring-brand-500 flex-shrink-0"
                                           />
-                                          <span className={`truncate select-none ${isChecked ? 'text-brand-900 font-medium' : 'text-slate-600'}`} title={amenity}>{amenity}</span>
+                                          <span className={`select-none break-words leading-tight ${isChecked ? 'text-brand-900 font-medium' : 'text-slate-600'}`} title={amenity}>{amenity}</span>
                                         </label>
                                      )}
                                      {!isEditing && (
