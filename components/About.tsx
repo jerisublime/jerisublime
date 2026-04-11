@@ -3,10 +3,10 @@ import { useContent } from '../context/ContentContext';
 import { useLanguage } from '../context/LanguageContext';
 
 const About: React.FC = () => {
-  const { content } = useContent();
+  const { content: siteContent } = useContent();
   const { language } = useLanguage();
 
-  // Default translated content
+  // Default translated content (fallbacks)
   const defaultContent = {
     pt: {
       title: 'Relaxe no Coração das Dunas',
@@ -25,7 +25,14 @@ const About: React.FC = () => {
     },
   };
 
-  const translatedContent = defaultContent[language];
+  const defaults = defaultContent[language];
+
+  // Use content from admin (ContentContext) if available, otherwise use translated defaults
+  const translatedContent = {
+    title: siteContent.aboutTitle || defaults.title,
+    text1: siteContent.aboutText1 || defaults.text1,
+    text2: siteContent.aboutText2 || defaults.text2,
+  };
 
   return (
     <section id="about" className="py-20 md:py-32 bg-sand-50">

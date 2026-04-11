@@ -5,7 +5,7 @@ import { useContent } from '../context/ContentContext';
 
 const Hero: React.FC = () => {
   const { language, t } = useLanguage();
-  const { content } = useContent();
+  const { content: siteContent } = useContent();
   const [currentImage, setCurrentImage] = useState(0);
 
   const defaultImages = [
@@ -15,8 +15,8 @@ const Hero: React.FC = () => {
     '/images/sunset-kite.jpg',
   ];
 
-  const heroImages = content.heroImages && content.heroImages.length > 0 
-    ? content.heroImages 
+  const heroImages = siteContent.heroImages && siteContent.heroImages.length > 0 
+    ? siteContent.heroImages 
     : defaultImages;
 
   useEffect(() => {
@@ -24,10 +24,10 @@ const Hero: React.FC = () => {
       setCurrentImage((prev) => (prev === heroImages.length - 1 ? 0 : prev + 1));
     }, 6000);
     return () => clearInterval(timer);
-  }, []);
+  }, [heroImages.length]);
 
-  // Translated hero content
-  const heroContent = {
+  // Translated hero content (used as fallback defaults)
+  const heroDefaults = {
     pt: {
       title: 'A Essência de Jericoacoara',
       subtitle: 'Onde o luxo rústico encontra a natureza intocada.',
@@ -42,7 +42,13 @@ const Hero: React.FC = () => {
     },
   };
 
-  const heroText = heroContent[language];
+  const defaults = heroDefaults[language];
+
+  // Use content from admin (ContentContext) if available, otherwise use translated defaults
+  const heroText = {
+    title: siteContent.heroTitle || defaults.title,
+    subtitle: siteContent.heroSubtitle || defaults.subtitle,
+  };
 
   return (
     <section className="relative h-screen w-full overflow-hidden">

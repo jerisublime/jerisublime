@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import { useContent } from '../context/ContentContext';
 import { MapPin, Wifi, Coffee, Wind, Star, Waves, UtensilsCrossed, Flower2 } from 'lucide-react';
 
 const differentials = [
@@ -106,6 +107,7 @@ const galleryImages = [
 
 const AboutPage: React.FC = () => {
     const { language } = useLanguage();
+    const { content: siteContent } = useContent();
     const content = pageContent[language] || pageContent.pt;
     const diffTexts = differentialTexts[language] || differentialTexts.pt;
 
@@ -133,14 +135,14 @@ const AboutPage: React.FC = () => {
                         <div className="space-y-8">
                             <span className="text-brand-500 font-bold tracking-widest uppercase text-sm">{content.historyTitle}</span>
                             <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-900 leading-tight">
-                                {content.aboutTitle}
+                                {siteContent.aboutTitle || content.aboutTitle}
                             </h2>
                             <div className="w-20 h-1 bg-brand-500"></div>
                             <p className="text-slate-600 leading-relaxed text-lg">
-                                {content.aboutText1}
+                                {siteContent.aboutText1 || content.aboutText1}
                             </p>
                             <p className="text-slate-600 leading-relaxed text-lg">
-                                {content.aboutText2}
+                                {siteContent.aboutText2 || content.aboutText2}
                             </p>
                         </div>
                         <div className="relative">
