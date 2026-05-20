@@ -8,9 +8,6 @@ const differentials = [
     { icon: <Wifi className="w-6 h-6" />, key: 'wifi' },
     { icon: <Wind className="w-6 h-6" />, key: 'ac' },
     { icon: <Waves className="w-6 h-6" />, key: 'pool' },
-    { icon: <UtensilsCrossed className="w-6 h-6" />, key: 'restaurant' },
-    { icon: <Flower2 className="w-6 h-6" />, key: 'spa' },
-    { icon: <Star className="w-6 h-6" />, key: 'concierge' },
 ];
 
 const differentialTexts: Record<string, Record<string, { title: string; desc: string }>> = {
@@ -18,28 +15,19 @@ const differentialTexts: Record<string, Record<string, { title: string; desc: st
         location: { title: 'Localização Premium', desc: 'A poucos passos da praia e da Duna do Pôr do Sol' },
         wifi: { title: 'Wi-Fi de Alta Velocidade', desc: 'Conexão rápida em todas as áreas' },
         ac: { title: 'Climatização', desc: 'Ar condicionado em todas as suítes' },
-        pool: { title: 'Piscina Infinita', desc: 'Vista panorâmica para o mar' },
-        restaurant: { title: 'Restaurante Orizonte', desc: 'Alta gastronomia cearense' },
-        spa: { title: 'Spa & Bem-estar', desc: 'Massagens e tratamentos relaxantes' },
-        concierge: { title: 'Concierge 24h', desc: 'Atendimento personalizado a qualquer hora' },
+        pool: { title: 'Piscina', desc: 'Vista panorâmica para o mar' },
     },
     en: {
         location: { title: 'Premium Location', desc: 'Steps away from the beach and Sunset Dune' },
         wifi: { title: 'High-Speed Wi-Fi', desc: 'Fast connection in all areas' },
         ac: { title: 'Air Conditioning', desc: 'Climate control in all suites' },
-        pool: { title: 'Infinity Pool', desc: 'Panoramic ocean views' },
-        restaurant: { title: 'Orizonte Restaurant', desc: 'Fine Ceará cuisine' },
-        spa: { title: 'Spa & Wellness', desc: 'Massages and relaxing treatments' },
-        concierge: { title: '24h Concierge', desc: 'Personalized service anytime' },
+        pool: { title: 'Pool', desc: 'Panoramic ocean views' },
     },
     es: {
         location: { title: 'Ubicación Premium', desc: 'A pocos pasos de la playa y la Duna del Atardecer' },
         wifi: { title: 'Wi-Fi de Alta Velocidad', desc: 'Conexión rápida en todas las áreas' },
         ac: { title: 'Aire Acondicionado', desc: 'Climatización en todas las suites' },
-        pool: { title: 'Piscina Infinita', desc: 'Vista panorámica al mar' },
-        restaurant: { title: 'Restaurante Orizonte', desc: 'Alta gastronomía cearense' },
-        spa: { title: 'Spa & Bienestar', desc: 'Masajes y tratamientos relajantes' },
-        concierge: { title: 'Conserje 24h', desc: 'Atención personalizada a cualquier hora' },
+        pool: { title: 'Piscina', desc: 'Vista panorámica al mar' },
     },
 };
 
@@ -95,10 +83,10 @@ const pageContent: Record<string, any> = {
 };
 
 const galleryImages = [
-    'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80',
+    'https://www.jerisublime.com/images/pescadores.jpg',
+    'https://www.jerisublime.com/suites/suite2/2.jpeg',
+    'https://www.jerisublime.com/images/interior.jpg',
+    'https://www.jerisublime.com/suites/suite3/3.jpeg',
 ];
 
 const AboutPage: React.FC = () => {
@@ -113,7 +101,7 @@ const AboutPage: React.FC = () => {
             <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
                 <div
                     className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: `url('https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&w=1920&q=80')` }}
+                    style={{ backgroundImage: `url('https://www.jerisublime.com/images/pescadores.jpg')` }}
                 >
                     <div className="absolute inset-0 bg-brand-900/60"></div>
                 </div>
@@ -143,7 +131,7 @@ const AboutPage: React.FC = () => {
                         </div>
                         <div className="relative">
                             <img
-                                src="https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&w=800&q=80"
+                                src="https://www.jerisublime.com/images/sunset-kite.jpg"
                                 alt="Interior do Hotel"
                                 className="w-full h-[500px] object-cover rounded-sm shadow-2xl"
                             />
@@ -161,7 +149,7 @@ const AboutPage: React.FC = () => {
                         <div className="order-2 md:order-1">
                             <div className="relative rounded-sm overflow-hidden shadow-2xl">
                                 <img
-                                    src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
+                                    src="https://www.jerisublime.com/images/pescadores.jpg"
                                     alt="Jericoacoara Beach"
                                     className="w-full h-[400px] object-cover"
                                 />
