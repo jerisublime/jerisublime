@@ -13,16 +13,8 @@ interface GalleryImage {
 }
 
 const defaultGalleryImages: GalleryImage[] = [
-    { id: '1', src: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1200&q=80', alt: 'Área da Piscina', category: 'common' },
-    { id: '2', src: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1200&q=80', alt: 'Lobby', category: 'common' },
-    { id: '3', src: 'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1200&q=80', alt: 'Restaurante', category: 'common' },
-    { id: '4', src: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80', alt: 'Jardim', category: 'common' },
-    { id: '5', src: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80', alt: 'Lounge', category: 'common' },
-    { id: '6', src: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80', alt: 'Suíte Standard', category: 'suites' },
-    { id: '7', src: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80', alt: 'Suíte Deluxe', category: 'suites' },
-    { id: '8', src: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=80', alt: 'Master Suite', category: 'suites' },
-    { id: '9', src: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80', alt: 'Praia', category: 'experiences' },
-    { id: '10', src: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1200&q=80', alt: 'Duna do Pôr do Sol', category: 'experiences' },
+    { id: '1', src: 'https://www.jerisublime.com/images/sunset-palms.jpg', alt: 'Por do sol', category: 'common' },
+    { id: '2', src: 'https://www.jerisublime.com/images/pescadores.jpg', alt: 'Praia', category: 'experiences' },
 ];
 
 const GalleryPage: React.FC = () => {

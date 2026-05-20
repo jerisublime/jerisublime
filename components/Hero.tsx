@@ -30,15 +30,15 @@ const Hero: React.FC = () => {
   const heroDefaults = {
     pt: {
       title: 'A Essência de Jericoacoara',
-      subtitle: 'Onde o luxo rústico encontra a natureza intocada.',
+      subtitle: 'Conforto e ótima localização em Jericoacoara.',
     },
     en: {
       title: 'The Essence of Jericoacoara',
-      subtitle: 'Where rustic luxury meets untouched nature.',
+      subtitle: 'Comfort and great location in Jericoacoara.',
     },
     es: {
       title: 'La Esencia de Jericoacoara',
-      subtitle: 'Donde el lujo rústico encuentra la naturaleza intacta.',
+      subtitle: 'Confort y excelente ubicación en Jericoacoara.',
     },
   };
 

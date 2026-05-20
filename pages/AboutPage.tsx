@@ -18,7 +18,6 @@ const differentialTexts: Record<string, Record<string, { title: string; desc: st
     pt: {
         location: { title: 'Localização Premium', desc: 'A poucos passos da praia e da Duna do Pôr do Sol' },
         wifi: { title: 'Wi-Fi de Alta Velocidade', desc: 'Conexão rápida em todas as áreas' },
-        breakfast: { title: 'Café da Manhã Gourmet', desc: 'Buffet completo com produtos regionais' },
         ac: { title: 'Climatização', desc: 'Ar condicionado em todas as suítes' },
         pool: { title: 'Piscina Infinita', desc: 'Vista panorâmica para o mar' },
         restaurant: { title: 'Restaurante Orizonte', desc: 'Alta gastronomia cearense' },
@@ -28,7 +27,6 @@ const differentialTexts: Record<string, Record<string, { title: string; desc: st
     en: {
         location: { title: 'Premium Location', desc: 'Steps away from the beach and Sunset Dune' },
         wifi: { title: 'High-Speed Wi-Fi', desc: 'Fast connection in all areas' },
-        breakfast: { title: 'Gourmet Breakfast', desc: 'Full buffet with regional products' },
         ac: { title: 'Air Conditioning', desc: 'Climate control in all suites' },
         pool: { title: 'Infinity Pool', desc: 'Panoramic ocean views' },
         restaurant: { title: 'Orizonte Restaurant', desc: 'Fine Ceará cuisine' },
@@ -38,7 +36,6 @@ const differentialTexts: Record<string, Record<string, { title: string; desc: st
     es: {
         location: { title: 'Ubicación Premium', desc: 'A pocos pasos de la playa y la Duna del Atardecer' },
         wifi: { title: 'Wi-Fi de Alta Velocidad', desc: 'Conexión rápida en todas las áreas' },
-        breakfast: { title: 'Desayuno Gourmet', desc: 'Buffet completo con productos regionales' },
         ac: { title: 'Aire Acondicionado', desc: 'Climatización en todas las suites' },
         pool: { title: 'Piscina Infinita', desc: 'Vista panorámica al mar' },
         restaurant: { title: 'Restaurante Orizonte', desc: 'Alta gastronomía cearense' },
