@@ -75,7 +75,6 @@ function App() {
             <Footer />
 
             {/* Floating Widgets */}
-            <Chatbot />
             <WhatsAppButton />
           </div>
         </Router>

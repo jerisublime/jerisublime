@@ -146,18 +146,6 @@ const getDefaultSuites = (language: string): Suite[] => {
     ]
   };
 
-  const savedSuites = localStorage.getItem('jeri_suites');
-  if (savedSuites) {
-    try {
-      const parsed = JSON.parse(savedSuites);
-      if (parsed[language]) {
-        return parsed[language];
-      }
-    } catch (e) {
-      console.error('Error parsing saved suites:', e);
-    }
-  }
-
   return suites[language as keyof typeof suites] || suites.pt;
 };
 
@@ -198,14 +186,6 @@ export const ContentProvider: React.FC<ContentProviderProps> = ({ children }) =>
   };
 
   const getSavedContent = (): SiteContent => {
-    try {
-      const savedContent = localStorage.getItem('jeri_content');
-      if (savedContent) {
-        return JSON.parse(savedContent) as SiteContent;
-      }
-    } catch (e) {
-      console.error('Failed to parse saved content', e);
-    }
     return defaultContent;
   };
 
@@ -215,26 +195,7 @@ export const ContentProvider: React.FC<ContentProviderProps> = ({ children }) =>
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isSetupComplete, setIsSetupComplete] = useState(true); // Setup is always complete now
 
-  // Save suites to localStorage whenever they change
-  useEffect(() => {
-    try {
-      const savedSuites = localStorage.getItem('jeri_suites');
-      const allSuites = savedSuites ? JSON.parse(savedSuites) : {};
-      allSuites[language] = suites;
-      localStorage.setItem('jeri_suites', JSON.stringify(allSuites));
-    } catch (e) {
-      console.error('Failed to save suites to localStorage', e);
-    }
-  }, [suites, language]);
 
-  // Save content to localStorage whenever it changes
-  useEffect(() => {
-    try {
-      localStorage.setItem('jeri_content', JSON.stringify(content));
-    } catch (e) {
-      console.error('Failed to save content to localStorage', e);
-    }
-  }, [content]);
 
   // Listen for language changes
   useEffect(() => {

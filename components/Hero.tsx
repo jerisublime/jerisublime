@@ -44,10 +44,9 @@ const Hero: React.FC = () => {
 
   const defaults = heroDefaults[language];
 
-  // Use content from admin (ContentContext) if available, otherwise use translated defaults
   const heroText = {
-    title: siteContent.heroTitle || defaults.title,
-    subtitle: siteContent.heroSubtitle || defaults.subtitle,
+    title: defaults.title,
+    subtitle: defaults.subtitle,
   };
 
   return (

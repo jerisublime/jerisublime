@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { useContent } from '../context/ContentContext';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -23,39 +23,7 @@ const GalleryPage: React.FC = () => {
     const [activeCategory, setActiveCategory] = useState<Category>('all');
     const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-    // Load gallery images from localStorage
-    const [galleryImages, setGalleryImages] = useState<GalleryImage[]>(() => {
-        const saved = localStorage.getItem('jeri_gallery_images');
-        return saved ? JSON.parse(saved) : defaultGalleryImages;
-    });
-
-    // Listen for storage changes (when admin updates gallery)
-    useEffect(() => {
-        const handleStorageChange = () => {
-            const saved = localStorage.getItem('jeri_gallery_images');
-            if (saved) {
-                setGalleryImages(JSON.parse(saved));
-            }
-        };
-
-        window.addEventListener('storage', handleStorageChange);
-
-        // Also check periodically for same-tab updates
-        const interval = setInterval(() => {
-            const saved = localStorage.getItem('jeri_gallery_images');
-            if (saved) {
-                const parsed = JSON.parse(saved);
-                if (JSON.stringify(parsed) !== JSON.stringify(galleryImages)) {
-                    setGalleryImages(parsed);
-                }
-            }
-        }, 1000);
-
-        return () => {
-            window.removeEventListener('storage', handleStorageChange);
-            clearInterval(interval);
-        };
-    }, [galleryImages]);
+    const [galleryImages] = useState<GalleryImage[]>(defaultGalleryImages);
 
     // Dinamicamente puxa imagens de todas as suítes castradas
     const suiteDynamicImages: GalleryImage[] = suites.flatMap(suite => {
