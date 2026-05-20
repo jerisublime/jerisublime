@@ -33,7 +33,6 @@ export interface Translations {
     priceFrom: string;
     amenities: {
       wifi: string;
-      breakfast: string;
       airConditioning: string;
       amenities: string;
     };
@@ -54,7 +53,6 @@ export interface Translations {
     items: {
       sunset: { title: string; desc: string };
       kitesurf: { title: string; desc: string };
-      gastronomy: { title: string; desc: string };
       tours: { title: string; desc: string };
     };
   };
@@ -142,7 +140,6 @@ export const translations: Record<Language, Translations> = {
       priceFrom: 'A partir de',
       amenities: {
         wifi: 'Wi-Fi Alta Velocidade',
-        breakfast: 'Café da manhã incluso',
         airConditioning: 'Ar Condicionado',
         amenities: 'Amenities Granado',
       },
@@ -168,10 +165,6 @@ export const translations: Record<Language, Translations> = {
         kitesurf: {
           title: 'Kitesurf',
           desc: 'Aulas particulares e aluguel de equipamentos para aproveitar os melhores ventos do mundo.',
-        },
-        gastronomy: {
-          title: 'Gastronomia',
-          desc: 'Jantares exclusivos no nosso restaurante Orizonte, com o melhor da culinária cearense.',
         },
         tours: {
           title: 'Passeios',
@@ -261,7 +254,6 @@ export const translations: Record<Language, Translations> = {
       priceFrom: 'Starting at',
       amenities: {
         wifi: 'High-Speed Wi-Fi',
-        breakfast: 'Breakfast included',
         airConditioning: 'Air Conditioning',
         amenities: 'Granado Amenities',
       },
@@ -287,10 +279,6 @@ export const translations: Record<Language, Translations> = {
         kitesurf: {
           title: 'Kitesurfing',
           desc: 'Private lessons and equipment rental to enjoy some of the best winds in the world.',
-        },
-        gastronomy: {
-          title: 'Gastronomy',
-          desc: 'Exclusive dinners at our Orizonte restaurant, featuring the best of Ceará cuisine.',
         },
         tours: {
           title: 'Tours',
@@ -380,7 +368,6 @@ export const translations: Record<Language, Translations> = {
       priceFrom: 'Desde',
       amenities: {
         wifi: 'Wi-Fi de Alta Velocidad',
-        breakfast: 'Desayuno incluido',
         airConditioning: 'Aire Acondicionado',
         amenities: 'Amenities Granado',
       },
@@ -406,10 +393,6 @@ export const translations: Record<Language, Translations> = {
         kitesurf: {
           title: 'Kitesurf',
           desc: 'Clases privadas y alquiler de equipos para disfrutar de los mejores vientos del mundo.',
-        },
-        gastronomy: {
-          title: 'Gastronomía',
-          desc: 'Cenas exclusivas en nuestro restaurante Orizonte, con lo mejor de la cocina cearense.',
         },
         tours: {
           title: 'Paseos',

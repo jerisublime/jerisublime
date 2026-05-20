@@ -15,19 +15,19 @@ const differentialTexts: Record<string, Record<string, { title: string; desc: st
         location: { title: 'Localização Premium', desc: 'A poucos passos da praia e da Duna do Pôr do Sol' },
         wifi: { title: 'Wi-Fi de Alta Velocidade', desc: 'Conexão rápida em todas as áreas' },
         ac: { title: 'Climatização', desc: 'Ar condicionado em todas as suítes' },
-        pool: { title: 'Piscina', desc: 'Vista panorâmica para o mar' },
+        pool: { title: 'Piscina', desc: 'Para você relaxar e aproveitar o sol' },
     },
     en: {
         location: { title: 'Premium Location', desc: 'Steps away from the beach and Sunset Dune' },
         wifi: { title: 'High-Speed Wi-Fi', desc: 'Fast connection in all areas' },
         ac: { title: 'Air Conditioning', desc: 'Climate control in all suites' },
-        pool: { title: 'Pool', desc: 'Panoramic ocean views' },
+        pool: { title: 'Pool', desc: 'Relax and enjoy the sun' },
     },
     es: {
         location: { title: 'Ubicación Premium', desc: 'A pocos pasos de la playa y la Duna del Atardecer' },
         wifi: { title: 'Wi-Fi de Alta Velocidad', desc: 'Conexión rápida en todas las áreas' },
         ac: { title: 'Aire Acondicionado', desc: 'Climatización en todas las suites' },
-        pool: { title: 'Piscina', desc: 'Vista panorámica al mar' },
+        pool: { title: 'Piscina', desc: 'Para relajarse y disfrutar del sol' },
     },
 };
 

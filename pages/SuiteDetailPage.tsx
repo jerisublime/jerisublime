@@ -45,7 +45,6 @@ const SuiteDetailPage: React.FC = () => {
 
     const defaultAmenitiesList = [
         t.suites.amenities.wifi,
-        t.suites.amenities.breakfast,
         t.suites.amenities.airConditioning,
         t.suites.amenities.amenities,
         language === 'pt' ? 'Varanda Privativa' : language === 'en' ? 'Private Balcony' : 'Balcón Privado',
