@@ -24,9 +24,8 @@ const getDefaultSuites = (language: string): Suite[] => {
         desc: "Conforto e charme com varanda privativa voltada para o jardim tropical.",
         features: [
           'Wi-Fi Alta Velocidade',
-          'Café da manhã incluso',
           'Ar Condicionado',
-          'Amenities Granado',
+          'Amenities',
           'Varanda Privativa',
           'Frigobar',
           'Cofre Digital',
@@ -45,9 +44,8 @@ const getDefaultSuites = (language: string): Suite[] => {
         desc: "Acorde com a brisa do oceano e uma vista panorâmica inesquecível.",
         features: [
           'Wi-Fi Alta Velocidade',
-          'Café da manhã incluso',
           'Ar Condicionado',
-          'Amenities Granado',
+          'Amenities',
           'Varanda Privativa',
           'Frigobar',
           'Cofre Digital'
@@ -64,9 +62,8 @@ const getDefaultSuites = (language: string): Suite[] => {
         desc: "Privacidade total com piscina exclusiva e deck ao ar livre.",
         features: [
           'Wi-Fi Alta Velocidade',
-          'Café da manhã incluso',
           'Ar Condicionado',
-          'Amenities Granado',
+          'Amenities',
           'Frigobar',
           'Cofre Digital'
         ],
@@ -166,16 +163,15 @@ const getDefaultSuites = (language: string): Suite[] => {
 
 const defaultContent: SiteContent = {
   heroTitle: "A Essência de Jericoacoara",
-  heroSubtitle: "Onde o luxo rústico encontra a natureza intocada.",
+  heroSubtitle: "Conforto e ótima localização em Jericoacoara.",
   aboutTitle: "Relaxe no Coração das Dunas",
   aboutText1: "O Jeri Sublime nasceu do desejo de integrar conforto absoluto com a energia vibrante de Jericoacoara. Nossa arquitetura respeita o meio ambiente, utilizando materiais locais e aproveitando a brisa constante do mar.",
   aboutText2: "A poucos passos da água, oferecemos um refúgio de tranquilidade, gastronomia de alto nível e serviço personalizado para que cada momento seja memorável.",
   amenitiesTitle: "Comodidades",
   globalAmenities: [
     "Wi-Fi Alta Velocidade",
-    "Café da manhã incluso",
     "Ar Condicionado",
-    "Amenities Granado",
+    "Amenities",
     "Varanda Privativa",
     "Frigobar",
     "Cofre Digital",

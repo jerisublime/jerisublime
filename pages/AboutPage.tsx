@@ -1,12 +1,11 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { useContent } from '../context/ContentContext';
-import { MapPin, Wifi, Coffee, Wind, Star, Waves, UtensilsCrossed, Flower2 } from 'lucide-react';
+import { MapPin, Wifi, Wind, Star, Waves, UtensilsCrossed, Flower2 } from 'lucide-react';
 
 const differentials = [
     { icon: <MapPin className="w-6 h-6" />, key: 'location' },
     { icon: <Wifi className="w-6 h-6" />, key: 'wifi' },
-    { icon: <Coffee className="w-6 h-6" />, key: 'breakfast' },
     { icon: <Wind className="w-6 h-6" />, key: 'ac' },
     { icon: <Waves className="w-6 h-6" />, key: 'pool' },
     { icon: <UtensilsCrossed className="w-6 h-6" />, key: 'restaurant' },

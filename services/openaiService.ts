@@ -156,7 +156,7 @@ const getDemoResponse = (message: string, language: Language): string => {
             preco: 'Nossas suítes variam de R$ 800 (Standard) a R$ 2.500 (Master Pool Villa) por noite. Inclui café da manhã gourmet e acesso a todas as áreas comuns. Para consultas e reservas, entre em contato pelo WhatsApp!',
             suite: 'Temos 3 categorias: Standard (aconchegante com varanda), Deluxe Vista Mar (acordar com o oceano) e Master Pool Villa (piscina privativa). Qual você gostaria de conhecer melhor?',
             localizacao: 'Estamos no coração de Jericoacoara, a poucos passos da praia e da famosa Duna do Pôr do Sol. A localização perfeita para explorar a vila!',
-            default: 'Olá! Ficamos felizes com seu interesse no Jeri Sublime. Oferecemos suítes a partir de R$ 800 por noite com café da manhã incluso. Para mais informações e reservas, entre em contato pelo WhatsApp!',
+            default: 'Olá! Ficamos felizes com seu interesse no Jeri Sublime. Oferecemos suítes a partir de R$ 800 por noite. Para mais informações e reservas, entre em contato pelo WhatsApp!',
         },
         en: {
             price: 'Our suites range from $160 (Standard) to $500 (Master Pool Villa) per night. Includes gourmet breakfast and access to all common areas. For inquiries and reservations, contact us via WhatsApp!',
