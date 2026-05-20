@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sun, Waves, Wine, Camera } from 'lucide-react';
+import { Sun, Waves, Camera } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 const Experience: React.FC = () => {
@@ -15,11 +15,6 @@ const Experience: React.FC = () => {
       icon: <Waves className="w-8 h-8" />,
       title: t.experiences.items.kitesurf.title,
       desc: t.experiences.items.kitesurf.desc,
-    },
-    {
-      icon: <Wine className="w-8 h-8" />,
-      title: t.experiences.items.gastronomy.title,
-      desc: t.experiences.items.gastronomy.desc,
     },
     {
       icon: <Camera className="w-8 h-8" />,
