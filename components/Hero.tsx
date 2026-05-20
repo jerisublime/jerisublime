@@ -69,7 +69,7 @@ const Hero: React.FC = () => {
         <span className="text-sm md:text-base font-medium tracking-[0.3em] uppercase mb-4 animate-fade-in-up">
           {t.hero.welcome}
         </span>
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold mb-6 leading-tight animate-fade-in-up delay-100">
+        <h1 className="text-5xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 leading-tight animate-fade-in-up delay-100">
           {heroText.title}
         </h1>
         <p className="max-w-xl text-lg md:text-xl font-light mb-10 opacity-90 animate-fade-in-up delay-200">
