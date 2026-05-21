@@ -124,13 +124,10 @@ const Header: React.FC = () => {
           >
             {t.nav.gallery}
           </Link>
-          <a
-            href="#experience"
+          
+            <Link to="https://www.sisreservas.com.br/motor-de-reservas-red/jeri-sublime" 
             onClick={() => setMobileMenuOpen(false)}
-            className="text-xl font-serif text-brand-900 hover:text-brand-500 transition-colors"
-          >
-            {t.nav.experiences}
-          </a>
+            className="text-xl font-serif text-brand-900 hover:text-brand-500 transition-colors" target="_blank" rel="noopener noreferrer">{t.nav.book}</Link>
 
           <div className="w-full px-8 mt-4">
             <a
