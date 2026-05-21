@@ -10,18 +10,18 @@ const About: React.FC = () => {
   const defaultContent = {
     pt: {
       title: 'Relaxe no Coração das Dunas',
-      text1: 'O Jeri Sublime nasceu do desejo de integrar conforto absoluto com a energia vibrante de Jericoacoara. Nossa arquitetura respeita o meio ambiente, utilizando materiais locais e aproveitando a brisa constante do mar.',
-      text2: 'A poucos passos da água, oferecemos um refúgio de tranquilidade, gastronomia de alto nível e serviço personalizado para que cada momento seja memorável.',
+      text1: 'Jeri Sublime nasceu do desejo de integrar conforto com a energia vibrante de Jericoacoara. Nossa arquitetura respeita o clima e a essência local, aproveitando a brisa constante do mar e os materiais da região.',
+      text2: 'A poucos passos da água, dos principais restaurantes e da vida noturna, oferecemos uma hospedagem leve, e bem localizada para quem deseja aproveitar Jeri com conforto e liberdade.',
     },
     en: {
       title: 'Relax in the Heart of the Dunes',
-      text1: 'Jeri Sublime was born from the desire to integrate absolute comfort with the vibrant energy of Jericoacoara. Our architecture respects the environment, using local materials and taking advantage of the constant sea breeze.',
-      text2: 'Steps away from the water, we offer a refuge of tranquility, fine dining, and personalized service to make every moment memorable.',
+      text1: 'Jeri Sublime was born from the desire to integrate comfort with the vibrant energy of Jericoacoara. Our architecture respects the climate and local essence, taking advantage of the constant sea breeze and local materials.',
+      text2: 'Steps away from the water, main restaurants, and nightlife, we offer a light and well-located lodging for those who want to enjoy Jeri with comfort and freedom.',
     },
     es: {
       title: 'Relájate en el Corazón de las Dunas',
-      text1: 'Jeri Sublime nació del deseo de integrar el confort absoluto con la energía vibrante de Jericoacoara. Nuestra arquitectura respeta el medio ambiente, utilizando materiales locales y aprovechando la brisa constante del mar.',
-      text2: 'A pocos pasos del agua, ofrecemos un refugio de tranquilidad, gastronomía de alto nivel y servicio personalizado para que cada momento sea memorable.',
+      text1: 'Jeri Sublime nació del deseo de integrar confort con la energía vibrante de Jericoacoara. Nuestra arquitectura respeta el clima y la esencia local, aprovechando la brisa constante del mar y los materiales de la región.',
+      text2: 'A pocos pasos del agua, de los principales restaurantes y de la vida nocturna, ofrecemos un alojamiento ligero y bien ubicado para quienes desean disfrutar de Jeri con comodidad y libertad.',
     },
   };
 
@@ -52,9 +52,9 @@ const About: React.FC = () => {
           </div>
           <div className="relative">
             <img
-              src="/images/interior.jpg"
+              src="/images/piscina1.jpg"
               alt="Interior do Hotel"
-              className="w-full h-[600px] object-cover rounded-sm shadow-2xl grayscale hover:grayscale-0 transition-all duration-700"
+              className="w-full h-[600px] object-cover rounded-sm shadow-2xl hover:grayscale-0 transition-all duration-700"
             />
             <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-brand-100 -z-10 hidden md:block"></div>
           </div>
