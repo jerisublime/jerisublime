@@ -44,7 +44,6 @@ const getDefaultSuites = (language: string): Suite[] => {
           'Ar Condicionado',
           'Amenities',
           'Frigobar',
-          'Cofre Digital'
         ],
         gallery: [
           '/suites/suite3/2.jpeg',
@@ -62,9 +61,7 @@ const getDefaultSuites = (language: string): Suite[] => {
           'Wi-Fi',
           'Ar Condicionado',
           'Amenities',
-          'Varanda Privativa',
           'Frigobar',
-          'Cofre Digital'
         ],
         gallery: [
           '/suites/suite2/2.jpeg'
