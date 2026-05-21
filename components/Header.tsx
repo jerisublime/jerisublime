@@ -57,13 +57,14 @@ const Header: React.FC = () => {
             <Link to="/suites" className={linkClass}>{t.nav.suites}</Link>
             <Link to="/sobre" className={linkClass}>{t.nav.about}</Link>
             <Link to="/galeria" className={linkClass}>{t.nav.gallery}</Link>
+            <Link to="https://www.sisreservas.com.br/motor-de-reservas-red/jeri-sublime" className={linkClass} target="_blank" rel="noopener noreferrer">{t.nav.book}</Link>
 
             {/* Anchor links only work if on home, otherwise redirect home */}
-            {isHome ? (
+            {/* {isHome ? (
               <a href="#experience" className={linkClass}>{t.nav.experiences}</a>
             ) : (
               <Link to="/#experience" className={linkClass}>{t.nav.experiences}</Link>
-            )}
+            )} */}
 
             {isAuthenticated && (
               <Link to="/admin" className="text-brand-500 flex items-center gap-1 font-bold">
