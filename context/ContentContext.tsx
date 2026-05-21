@@ -166,10 +166,13 @@ const defaultContent: SiteContent = {
     "TV Smart 55\""
   ],
   heroImages: [
-    '/images/sunset-palms.jpg',
-    '/images/lagoa-praia.jpg',
+    '/images/piscina1.jpeg',
+    '/images/quarto2.jpeg',
+    '/images/kite3.jpeg',
+    '/images/kite4.jpeg',
+    '/images/kite5.jpeg',
     '/images/pescadores.jpg',
-    '/images/sunset-kite.jpg',
+    '/images/sunset-palms.jpg',
   ]
 };
 

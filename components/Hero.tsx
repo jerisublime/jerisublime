@@ -9,11 +9,11 @@ const Hero: React.FC = () => {
   const [currentImage, setCurrentImage] = useState(0);
 
   const defaultImages = [
-    '/images/piscina1.jpg',
-    '/images/quarto2.jpg',
-    '/images/kite3.jpg',
-    '/images/kite4.jpg',
-    '/images/kite5.jpg',
+    '/images/piscina1.jpeg',
+    '/images/quarto2.jpeg',
+    '/images/kite3.jpeg',
+    '/images/kite4.jpeg',
+    '/images/kite5.jpeg',
     '/images/pescadores.jpg',
     '/images/sunset-palms.jpg',
   ];
