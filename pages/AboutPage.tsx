@@ -42,7 +42,7 @@ const pageContent: Record<string, any> = {
         aboutText2: 'A poucos passos da água, dos principais restaurantes e da vida noturna, oferecemos uma hospedagem leve, e bem localizada para quem deseja aproveitar Jeri com conforto e liberdade.',
         locationTitle: 'Localização Privilegiada',
         locationDesc: 'Situado no coração de Jericoacoara, a poucos passos da praia e da famosa Duna do Pôr do Sol.',
-        locationText: 'Jericoacoara é um dos destinos mais desejados do Brasil, conhecido por suas dunas douradas, lagoas cristalinas e ventos perfeitos para esportes náuticos. Nossa pousada está estrategicamente localizada para que você aproveite o melhor da vila.',
+        locationText: 'Jericoacoara é um dos destinos mais desejados do Brasil, conhecido por suas dunas douradas, lagoas cristalinas e ventos perfeitos para esportes náuticos. Nossa suítes estão estrategicamente localizada para que você aproveite o melhor da vila.',
         differentialsTitle: 'Nossos Diferenciais',
         differentialsSubtitle: 'O Que Nos Torna Únicos',
         galleryTitle: 'Galeria de Fotos',
