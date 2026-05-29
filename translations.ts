@@ -155,7 +155,7 @@ export const translations: Record<Language, Translations> = {
     experiences: {
       title: 'Vivencie Jeri de Forma Única',
       sectionTitle: 'Experiências',
-      subtitle: 'Não oferecemos apenas uma estadia, mas uma curadoria completa do melhor que a vila tem a oferecer. Deixe nossa equipe cuidar de cada detalhe do seu roteiro.',
+      subtitle: 'Hospede-se perto da praia e dos principais pontos da vila. Ambientes acolhedores, piscina, Wi-Fi e praticidade para você aproveitar Jeri no seu próprio ritmo.',
       discoverMore: 'Descubra Mais',
       items: {
         sunset: {
@@ -269,7 +269,7 @@ export const translations: Record<Language, Translations> = {
     experiences: {
       title: 'Experience Jeri Like Never Before',
       sectionTitle: 'Experiences',
-      subtitle: 'We offer not just a stay, but a complete curation of the best the village has to offer. Let our team take care of every detail of your itinerary.',
+      subtitle: 'Stay near the beach and the main attractions of the village. Welcoming spaces, swimming pool, Wi-Fi and convenience for you to enjoy Jeri at your own pace.',
       discoverMore: 'Discover More',
       items: {
         sunset: {
@@ -383,7 +383,7 @@ export const translations: Record<Language, Translations> = {
     experiences: {
       title: 'Vive Jeri de Forma Única',
       sectionTitle: 'Experiencias',
-      subtitle: 'No ofrecemos solo una estadía, sino una curaduría completa de lo mejor que el pueblo tiene para ofrecer. Deja que nuestro equipo cuide cada detalle de tu itinerario.',
+      subtitle: 'Alojáte cerca de la playa y los puntos principales del pueblo. Espacios acogedores, piscina, Wi-Fi y practicidad para que disfrutes Jeri a tu propio ritmo.',
       discoverMore: 'Descubre Más',
       items: {
         sunset: {
