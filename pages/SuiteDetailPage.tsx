@@ -151,8 +151,8 @@ const SuiteDetailPage: React.FC = () => {
                         <div className="text-slate-600 leading-relaxed space-y-4">
                             <p className="whitespace-pre-line">
                                 {suite.fullDesc || (
-                                    language === 'pt' ? 'Esta suíte foi cuidadosamente projetada para proporcionar o máximo conforto e relaxamento. Com decoração que harmoniza elementos rústicos e modernos, você se sentirá em casa enquanto desfruta do luxo que merece.' :
-                                    language === 'en' ? 'This suite has been carefully designed to provide maximum comfort and relaxation. With decor that harmonizes rustic and modern elements, you will feel at home while enjoying the luxury you deserve.' :
+                                    language === 'pt' ? 'Esta suíte foi cuidadosamente projetada para proporcionar o máximo conforto e relaxamento. Com decoração que harmoniza elementos rústicos e modernos, você se sentirá em casa.' :
+                                    language === 'en' ? 'This suite has been carefully designed to provide maximum comfort and relaxation. With decor that harmonizes rustic and modern elements, you will feel at home.' :
                                     'Esta suite ha sido cuidadosamente diseñada para proporcionar el máximo confort y relajación. Con una decoración que armoniza elementos rústicos y modernos, te sentirás como en casa mientras disfrutas del lujo que mereces.'
                                 )}
                             </p>

@@ -111,7 +111,7 @@ export const translations: Record<Language, Translations> = {
     nav: {
       home: 'Início',
       suites: 'Suítes',
-      about: 'O Hotel',
+      about: 'Jeri Sublime',
       gallery: 'Galeria',
       experiences: 'Experiências',
       book: 'Reservar',
@@ -139,9 +139,9 @@ export const translations: Record<Language, Translations> = {
       bookThis: 'Reservar esta Suíte',
       priceFrom: 'A partir de',
       amenities: {
-        wifi: 'Wi-Fi Alta Velocidade',
+        wifi: 'Wi-Fi',
         airConditioning: 'Ar Condicionado',
-        amenities: 'Amenities Granado',
+        amenities: '',
       },
     },
     gallery: {
@@ -160,7 +160,7 @@ export const translations: Record<Language, Translations> = {
       items: {
         sunset: {
           title: 'Pôr do Sol',
-          desc: 'Acompanhe o espetáculo diário na duna mais famosa do Brasil, a poucos passos do hotel.',
+          desc: 'Acompanhe o espetáculo diário na duna mais famosa do Brasil, a poucos passos do Jeri Sublime.',
         },
         kitesurf: {
           title: 'Kitesurf',
@@ -181,7 +181,7 @@ export const translations: Record<Language, Translations> = {
       errorMessage: 'Estou tendo dificuldades técnicas no momento. Por favor, tente novamente em instantes ou contate nossa recepção.',
     },
     footer: {
-      description: 'Um oásis de luxo e tranquilidade na vila mais charmosa do Brasil. Conecte-se com a natureza sem abrir mão do conforto.',
+      description: 'Um oásis de tranquilidade na vila mais charmosa do Brasil. Conecte-se com a natureza sem abrir mão do conforto.',
       contact: 'Contato',
       quickLinks: 'Links Rápidos',
       rights: 'Todos os direitos reservados.',
@@ -225,7 +225,7 @@ export const translations: Record<Language, Translations> = {
     nav: {
       home: 'Home',
       suites: 'Suites',
-      about: 'The Hotel',
+      about: 'The Jeri Sublime',
       gallery: 'Gallery',
       experiences: 'Experiences',
       book: 'Book Now',
@@ -253,9 +253,9 @@ export const translations: Record<Language, Translations> = {
       bookThis: 'Book this Suite',
       priceFrom: 'Starting at',
       amenities: {
-        wifi: 'High-Speed Wi-Fi',
+        wifi: 'Wi-Fi',
         airConditioning: 'Air Conditioning',
-        amenities: 'Granado Amenities',
+        amenities: '',
       },
     },
     gallery: {
@@ -274,7 +274,7 @@ export const translations: Record<Language, Translations> = {
       items: {
         sunset: {
           title: 'Sunset',
-          desc: 'Witness the daily spectacle at Brazil\'s most famous dune, just steps from the hotel.',
+          desc: 'Witness the daily spectacle at Brazil\'s most famous dune, just steps from the Jeri Sublime.',
         },
         kitesurf: {
           title: 'Kitesurfing',
@@ -339,7 +339,7 @@ export const translations: Record<Language, Translations> = {
     nav: {
       home: 'Inicio',
       suites: 'Suites',
-      about: 'El Hotel',
+      about: 'El Jeri Sublime',
       gallery: 'Galería',
       experiences: 'Experiencias',
       book: 'Reservar',
@@ -367,9 +367,9 @@ export const translations: Record<Language, Translations> = {
       bookThis: 'Reservar esta Suite',
       priceFrom: 'Desde',
       amenities: {
-        wifi: 'Wi-Fi de Alta Velocidad',
+        wifi: 'Wi-Fi',
         airConditioning: 'Aire Acondicionado',
-        amenities: 'Amenities Granado',
+        amenities: '',
       },
     },
     gallery: {
@@ -388,7 +388,7 @@ export const translations: Record<Language, Translations> = {
       items: {
         sunset: {
           title: 'Atardecer',
-          desc: 'Acompaña el espectáculo diario en la duna más famosa de Brasil, a pocos pasos del hotel.',
+          desc: 'Acompaña el espectáculo diario en la duna más famosa de Brasil, a pocos pasos del Jeri Sublime.',
         },
         kitesurf: {
           title: 'Kitesurf',

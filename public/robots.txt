@@ -1,4 +1,4 @@
-# Jeri Sublime - Pousada de Luxo em Jericoacoara
+# Jeri Sublime - Jericoacoara
 
 User-agent: *
 Allow: /

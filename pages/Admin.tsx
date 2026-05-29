@@ -1237,7 +1237,7 @@ const Admin: React.FC = () => {
                       className="w-full p-2 border rounded h-24"
                       value={content.globalAmenities?.join(', ') || ''}
                       onChange={(e) => updateContent({ ...content, globalAmenities: e.target.value.split(',').map(s => s.trim()).filter(Boolean) })}
-                      placeholder="Wi-Fi Alta Velocidade, Frigobar, Cofre Digital..."
+                      placeholder="Wi-Fi, Frigobar, Cofre Digital..."
                     />
                   </div>
                   <div className="pt-4 flex items-center gap-4 border-t mt-4">

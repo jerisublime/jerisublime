@@ -13,19 +13,19 @@ const differentials = [
 const differentialTexts: Record<string, Record<string, { title: string; desc: string }>> = {
     pt: {
         location: { title: 'Localização Premium', desc: 'A poucos passos da praia e da Duna do Pôr do Sol' },
-        wifi: { title: 'Wi-Fi de Alta Velocidade', desc: 'Conexão rápida em todas as áreas' },
+        wifi: { title: 'Wi-Fi', desc: 'Conexão de internet' },
         ac: { title: 'Climatização', desc: 'Ar condicionado em todas as suítes' },
         pool: { title: 'Piscina', desc: 'Para você relaxar e aproveitar o sol' },
     },
     en: {
         location: { title: 'Premium Location', desc: 'Steps away from the beach and Sunset Dune' },
-        wifi: { title: 'High-Speed Wi-Fi', desc: 'Fast connection in all areas' },
+        wifi: { title: 'Wi-Fi', desc: 'Internet connection' },
         ac: { title: 'Air Conditioning', desc: 'Climate control in all suites' },
         pool: { title: 'Pool', desc: 'Relax and enjoy the sun' },
     },
     es: {
         location: { title: 'Ubicación Premium', desc: 'A pocos pasos de la playa y la Duna del Atardecer' },
-        wifi: { title: 'Wi-Fi de Alta Velocidad', desc: 'Conexión rápida en todas las áreas' },
+        wifi: { title: 'Wi-Fi', desc: 'Conexión de internet' },
         ac: { title: 'Aire Acondicionado', desc: 'Climatización en todas las suites' },
         pool: { title: 'Piscina', desc: 'Para relajarse y disfrutar del sol' },
     },
@@ -132,7 +132,7 @@ const AboutPage: React.FC = () => {
                         <div className="relative">
                             <img
                                 src="https://www.jerisublime.com/images/sunset-kite.jpg"
-                                alt="Interior do Hotel"
+                                alt="Interior do Jeri Sublime"
                                 className="w-full h-[500px] object-cover rounded-sm shadow-2xl"
                             />
                             <div className="absolute -bottom-8 -left-8 w-48 h-48 bg-brand-100 -z-10 hidden md:block"></div>

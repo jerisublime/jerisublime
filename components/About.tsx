@@ -53,7 +53,7 @@ const About: React.FC = () => {
           <div className="relative">
             <img
               src="/images/piscina1.jpeg"
-              alt="Interior do Hotel"
+              alt="Interior do Jeri Sublime"
               className="w-full h-[600px] object-cover rounded-sm shadow-2xl hover:grayscale-0 transition-all duration-700"
             />
             <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-brand-100 -z-10 hidden md:block"></div>

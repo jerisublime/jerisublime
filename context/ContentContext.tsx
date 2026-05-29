@@ -21,11 +21,10 @@ const getDefaultSuites = (language: string): Suite[] => {
         title: "Suíte Dupla",
         price: "",
         image: "/suites/suite1/1.jpeg",
-        desc: "Perfeita para casais que desejam relaxar e aproveitar a energia única de Jericoacoara. A Suíte Dupla oferece um ambiente aconchegante com cama de casal, ar-condicionado, Wi-Fi, frigobar e amenities para tornar sua estadia ainda mais confortável e prática em cada detalhe.",
+        desc: "Perfeita para casais que desejam relaxar e aproveitar a energia única de Jericoacoara. A Suíte Dupla oferece um ambiente aconchegante com cama de casal, ar-condicionado, Wi-Fi, e frigobar para tornar sua estadia ainda mais confortável e prática em cada detalhe.",
         features: [
           'Wi-Fi',
           'Ar Condicionado',
-          'Amenities',
           'Frigobar'
         ],
         gallery: [
@@ -38,11 +37,10 @@ const getDefaultSuites = (language: string): Suite[] => {
         title: "Suíte Tripla",
         price: "",
         image: "/suites/suite3/1.jpeg",
-        desc: "Ideal para pequenas famílias ou grupos de amigos, a Suíte Tripla conta com 1 cama de casal e 1 cama de solteiro, unindo conforto e funcionalidade em um ambiente agradável e acolhedor. A acomodação dispõe de ar-condicionado, Wi-Fi, frigobar e amenities para garantir dias tranquilos e especiais em Jericoacoara.",
+        desc: "Ideal para pequenas famílias ou grupos de amigos, a Suíte Tripla conta com 1 cama de casal e 1 cama de solteiro, unindo conforto e funcionalidade em um ambiente agradável e acolhedor. A acomodação dispõe de ar-condicionado, Wi-Fi e frigobar para garantir dias tranquilos e especiais em Jericoacoara.",
         features: [
           'Wi-Fi',
           'Ar Condicionado',
-          'Amenities',
           'Frigobar',
         ],
         gallery: [
@@ -56,11 +54,10 @@ const getDefaultSuites = (language: string): Suite[] => {
         title: "Suíte Quadrupla",
         price: "",
         image: "/suites/suite2/1.jpeg",
-        desc: "Espaçosa e confortável, a Suíte Quádrupla é perfeita para famílias ou grupos que desejam aproveitar Jericoacoara com comodidade. Com 1 cama de casal e 2 camas de solteiro, oferece um ambiente ideal para descanso após um dia de praia e passeios. A suíte conta com ar-condicionado, Wi-Fi, frigobar e amenities para uma experiência completa durante sua estadia.",
+        desc: "Espaçosa e confortável, a Suíte Quádrupla é perfeita para famílias ou grupos que desejam aproveitar Jericoacoara com comodidade. Com 1 cama de casal e 2 camas de solteiro, oferece um ambiente ideal para descanso após um dia de praia e passeios. A suíte conta com ar-condicionado, Wi-Fi e frigobar para uma experiência completa durante sua estadia.",
         features: [
           'Wi-Fi',
           'Ar Condicionado',
-          'Amenities',
           'Frigobar',
         ],
         gallery: [
@@ -74,11 +71,10 @@ const getDefaultSuites = (language: string): Suite[] => {
         "title": "Double Suite",
         "price": "",
         "image": "/suites/suite1/1.jpeg",
-        "desc": "Perfect for couples looking to relax and enjoy the unique atmosphere of Jericoacoara. The Double Suite offers a cozy environment with a double bed, air conditioning, Wi-Fi, minibar, and amenities to make your stay even more comfortable and convenient in every detail.",
+        "desc": "Perfect for couples looking to relax and enjoy the unique atmosphere of Jericoacoara. The Double Suite offers a cozy environment with a double bed, air conditioning, Wi-Fi, and minibar to make your stay even more comfortable and convenient in every detail.",
         "features": [
           "Wi-Fi",
           "Air Conditioning",
-          "Amenities",
           "Minibar"
         ],
         "gallery": [
@@ -91,11 +87,10 @@ const getDefaultSuites = (language: string): Suite[] => {
         "title": "Triple Suite",
         "price": "",
         "image": "/suites/suite3/1.jpeg",
-        "desc": "Ideal for small families or groups of friends, the Triple Suite features 1 double bed and 1 single bed, combining comfort and functionality in a pleasant and welcoming atmosphere. The accommodation includes air conditioning, Wi-Fi, minibar, and amenities to ensure peaceful and memorable days in Jericoacoara.",
+        "desc": "Ideal for small families or groups of friends, the Triple Suite features 1 double bed and 1 single bed, combining comfort and functionality in a pleasant and welcoming atmosphere. The accommodation includes air conditioning, Wi-Fi and minibar, to ensure peaceful and memorable days in Jericoacoara.",
         "features": [
           "Wi-Fi",
           "Air Conditioning",
-          "Amenities",
           "Minibar",
         ],
         "gallery": [
@@ -109,11 +104,10 @@ const getDefaultSuites = (language: string): Suite[] => {
         "title": "Quadruple Suite",
         "price": "",
         "image": "/suites/suite2/1.jpeg",
-        "desc": "Spacious and comfortable, the Quadruple Suite is perfect for families or groups who want to enjoy Jericoacoara with complete comfort. Featuring 1 double bed and 2 single beds, it provides the ideal setting to relax after a day at the beach and sightseeing. The suite includes air conditioning, Wi-Fi, minibar, and amenities for a complete and enjoyable stay.",
+        "desc": "Spacious and comfortable, the Quadruple Suite is perfect for families or groups who want to enjoy Jericoacoara with complete comfort. Featuring 1 double bed and 2 single beds, it provides the ideal setting to relax after a day at the beach and sightseeing. The suite includes air conditioning, Wi-Fi and minibar,  for a complete and enjoyable stay.",
         "features": [
           "Wi-Fi",
           "Air Conditioning",
-          "Amenities",
           "Minibar",
         ],
         "gallery": [
@@ -127,11 +121,10 @@ const getDefaultSuites = (language: string): Suite[] => {
         "title": "Suite Doble",
         "price": "",
         "image": "/suites/suite1/1.jpeg",
-        "desc": "Perfecta para parejas que desean relajarse y disfrutar de la energía única de Jericoacoara. La Suite Doble ofrece un ambiente acogedor con cama matrimonial, aire acondicionado, Wi-Fi, minibar y amenities para hacer su estadía aún más cómoda y práctica en cada detalle.",
+        "desc": "Perfecta para parejas que desean relajarse y disfrutar de la energía única de Jericoacoara. La Suite Doble ofrece un ambiente acogedor con cama matrimonial, aire acondicionado, Wi-Fi y minibar para hacer su estadía aún más cómoda y práctica en cada detalle.",
         "features": [
           "Wi-Fi",
           "Aire Acondicionado",
-          "Amenities",
           "Minibar"
         ],
         "gallery": [
@@ -144,11 +137,10 @@ const getDefaultSuites = (language: string): Suite[] => {
         "title": "Suite Triple",
         "price": "",
         "image": "/suites/suite3/1.jpeg",
-        "desc": "Ideal para pequeñas familias o grupos de amigos, la Suite Triple cuenta con 1 cama matrimonial y 1 cama individual, combinando comodidad y funcionalidad en un ambiente agradable y acogedor. El alojamiento dispone de aire acondicionado, Wi-Fi, minibar y amenities para garantizar días tranquilos y especiales en Jericoacoara.",
+        "desc": "Ideal para pequeñas familias o grupos de amigos, la Suite Triple cuenta con 1 cama matrimonial y 1 cama individual, combinando comodidad y funcionalidad en un ambiente agradable y acogedor. El alojamiento dispone de aire acondicionado, Wi-Fi y minibar para garantizar días tranquilos y especiales en Jericoacoara.",
         "features": [
           "Wi-Fi",
           "Aire Acondicionado",
-          "Amenities",
           "Minibar",
         ],
         "gallery": [
@@ -162,11 +154,10 @@ const getDefaultSuites = (language: string): Suite[] => {
         "title": "Suite Cuádruple",
         "price": "",
         "image": "/suites/suite2/1.jpeg",
-        "desc": "Amplia y confortable, la Suite Cuádruple es perfecta para familias o grupos que desean disfrutar de Jericoacoara con total comodidad. Con 1 cama matrimonial y 2 camas individuales, ofrece el ambiente ideal para descansar después de un día de playa y paseos. La suite cuenta con aire acondicionado, Wi-Fi, minibar y amenities para una experiencia completa durante su estadía.",
+        "desc": "Amplia y confortable, la Suite Cuádruple es perfecta para familias o grupos que desean disfrutar de Jericoacoara con total comodidad. Con 1 cama matrimonial y 2 camas individuales, ofrece el ambiente ideal para descansar después de un día de playa y paseos. La suite cuenta con aire acondicionado, Wi-Fi y minibar para una experiencia completa durante su estadía.",
         "features": [
           "Wi-Fi",
           "Aire Acondicionado",
-          "Amenities",
           "Minibar",
         ],
         "gallery": [
@@ -189,11 +180,7 @@ const defaultContent: SiteContent = {
   globalAmenities: [
     "Wi-Fi",
     "Ar Condicionado",
-    "Amenities",
-    "Varanda Privativa",
     "Frigobar",
-    "Cofre Digital",
-    "TV Smart 55\""
   ],
   heroImages: [
     '/images/piscina1.jpeg',
