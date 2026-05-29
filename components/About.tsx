@@ -9,17 +9,17 @@ const About: React.FC = () => {
   // Default translated content (fallbacks)
   const defaultContent = {
     pt: {
-      title: 'Relaxe no Coração das Dunas',
+      title: 'Relaxe em Jericoacoara',
       text1: 'Jeri Sublime nasceu do desejo de integrar conforto com a energia vibrante de Jericoacoara. Nossa arquitetura respeita o clima e a essência local, aproveitando a brisa constante do mar e os materiais da região.',
       text2: 'A poucos passos da água, dos principais restaurantes e da vida noturna, oferecemos uma hospedagem leve, e bem localizada para quem deseja aproveitar Jeri com conforto e liberdade.',
     },
     en: {
-      title: 'Relax in the Heart of the Dunes',
+      title: 'Relax in Jericoacoara',
       text1: 'Jeri Sublime was born from the desire to integrate comfort with the vibrant energy of Jericoacoara. Our architecture respects the climate and local essence, taking advantage of the constant sea breeze and local materials.',
       text2: 'Steps away from the water, main restaurants, and nightlife, we offer a light and well-located lodging for those who want to enjoy Jeri with comfort and freedom.',
     },
     es: {
-      title: 'Relájate en el Corazón de las Dunas',
+      title: 'Relájate en Jericoacoara',
       text1: 'Jeri Sublime nació del deseo de integrar confort con la energía vibrante de Jericoacoara. Nuestra arquitectura respeta el clima y la esencia local, aprovechando la brisa constante del mar y los materiales de la región.',
       text2: 'A pocos pasos del agua, de los principales restaurantes y de la vida nocturna, ofrecemos un alojamiento ligero y bien ubicado para quienes desean disfrutar de Jeri con comodidad y libertad.',
     },

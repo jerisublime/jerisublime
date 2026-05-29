@@ -127,7 +127,7 @@ export const translations: Record<Language, Translations> = {
       pageSubtitle: 'Uma experiência única de hospedagem em Jericoacoara',
       historyTitle: 'Nossa História',
       locationTitle: 'Localização Privilegiada',
-      locationDesc: 'Situado no coração de Jericoacoara, a poucos passos da praia e da famosa Duna do Pôr do Sol.',
+      locationDesc: 'Excelente localização, próximo à Praia da Malhada, conhecida pela prática de surf e windsurf, além dos principais restaurantes, cafés e da vida noturna de Jericoacoara.',
       differentialsTitle: 'Nossos Diferenciais',
     },
     suites: {
@@ -241,7 +241,7 @@ export const translations: Record<Language, Translations> = {
       pageSubtitle: 'A unique lodging experience in Jericoacoara',
       historyTitle: 'Our Story',
       locationTitle: 'Prime Location',
-      locationDesc: 'Located in the heart of Jericoacoara, steps away from the beach and the famous Sunset Dune.',
+      locationDesc: 'Excellent location, close to Malhada Beach, known for surfing and windsurfing, as well as the main restaurants, cafes and nightlife of Jericoacoara.',
       differentialsTitle: 'Our Differentials',
     },
     suites: {
@@ -355,7 +355,7 @@ export const translations: Record<Language, Translations> = {
       pageSubtitle: 'Una experiencia única de hospedaje en Jericoacoara',
       historyTitle: 'Nuestra Historia',
       locationTitle: 'Ubicación Privilegiada',
-      locationDesc: 'Ubicado en el corazón de Jericoacoara, a pocos pasos de la playa y la famosa Duna del Atardecer.',
+      locationDesc: 'Excelente localización, próximo a la playa de Malhada, conocida por la práctica de surf y windsurf, además de los principales restaurantes, cafés y la vida nocturna de Jericoacoara.',
       differentialsTitle: 'Nuestros Diferenciales',
     },
     suites: {

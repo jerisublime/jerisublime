@@ -173,7 +173,7 @@ const getDefaultSuites = (language: string): Suite[] => {
 const defaultContent: SiteContent = {
   heroTitle: "A Essência de Jericoacoara",
   heroSubtitle: "Conforto e ótima localização em Jericoacoara.",
-  aboutTitle: "Relaxe no Coração das Dunas",
+  aboutTitle: "Relaxe em Jericoacoara",
   aboutText1: "Jeri Sublime nasceu do desejo de integrar conforto com a energia vibrante de Jericoacoara. Nossa arquitetura respeita o clima e a essência local, aproveitando a brisa constante do mar e os materiais da região.",
   aboutText2: "A poucos passos da água, dos principais restaurantes e da vida noturna, oferecemos uma hospedagem leve, e bem localizada para quem deseja aproveitar Jeri com conforto e liberdade.",
   amenitiesTitle: "Comodidades",
