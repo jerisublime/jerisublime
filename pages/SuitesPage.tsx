@@ -58,9 +58,6 @@ const SuitesPage: React.FC = () => {
                   <div className="flex items-center gap-2 text-sm text-slate-500">
                     <Check className="w-4 h-4 text-brand-500" /> {t.suites.amenities.airConditioning}
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-slate-500">
-                    <Check className="w-4 h-4 text-brand-500" /> {t.suites.amenities.amenities}
-                  </div>
                 </div>
 
                 <div className="pt-6 flex flex-col sm:flex-row gap-4">

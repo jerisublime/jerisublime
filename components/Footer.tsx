@@ -60,7 +60,7 @@ const Footer: React.FC = () => {
               <li><Link to="/sobre" className="hover:text-brand-500 transition-colors">{t.nav.about}</Link></li>
               <li><Link to="/suites" className="hover:text-brand-500 transition-colors">{t.nav.suites}</Link></li>
               <li><Link to="/galeria" className="hover:text-brand-500 transition-colors">{t.nav.gallery}</Link></li>
-              <li><a href="#experience" className="hover:text-brand-500 transition-colors">{t.nav.experiences}</a></li>
+              <li><a href="https://www.sisreservas.com.br/motor-de-reservas-red/jeri-sublime" target="_blank" rel="noopener noreferrer" className="hover:text-brand-500 transition-colors">{t.nav.book}</a></li>
             </ul>
           </div>
         </div>
