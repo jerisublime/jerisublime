@@ -17,7 +17,7 @@ const defaultGalleryImages: GalleryImage[] = [
     { id: '2', src: 'https://www.jerisublime.com/images/pescadores.jpg', alt: 'Praia', category: 'experiences' },
     { id: '3', src: 'https://www.jerisublime.com/images/buggy.jpeg', alt: 'Aventura', category: 'experiences' },
     { id: '4', src: 'https://www.jerisublime.com/images/quadri.jpeg', alt: 'Aventura', category: 'experiences' },
-    { id: '5', src: 'https://www.jerisublime.com/images/praia1.jpeg', alt: 'Praia', category: 'experiences' },
+    { id: '5', src: 'https://www.jerisublime.com/images/praia.jpeg', alt: 'Praia', category: 'experiences' },
     { id: '6', src: 'https://www.jerisublime.com/images/praia2.jpeg', alt: 'Praia', category: 'experiences' },
 ];
 

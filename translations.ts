@@ -160,7 +160,7 @@ export const translations: Record<Language, Translations> = {
       items: {
         sunset: {
           title: 'Pôr do Sol',
-          desc: 'Acompanhe o espetáculo diário na duna mais famosa do Brasil, a poucos passos do Jeri Sublime.',
+          desc: 'Excelente localização, próximo à Praia da Malhada, conhecida pela prática de surf e windsurf.',
         },
         kitesurf: {
           title: 'Kitesurf',
